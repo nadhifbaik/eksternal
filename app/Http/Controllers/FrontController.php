@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tentang;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,10 @@ class FrontController extends Controller
     }
     public function about()
     {
-        return view('about');
+        $judul = Tentang::Find(1);
+        $visi = Tentang::Find(2);
+        $misi = Tentang::Find(3);
+        return view('about', compact('judul', 'visi', 'misi'));
     }
     public function gallery()
     {

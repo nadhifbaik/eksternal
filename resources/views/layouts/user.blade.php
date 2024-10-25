@@ -34,11 +34,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const sidebar = document.querySelector(".sidebar");
+        const closeBtn = document.querySelector(".close-btn");
+
+        navbarToggler.addEventListener("click", function() {
+            sidebar.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", function() {
+            sidebar.classList.remove("active");
+        });
+
+        overlay.addEventListener("click", function() {
+            sidebar.classList.remove("active");
+        });
+    });
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="{{asset('front/js/map.js')}}"></script>
+
 
     <!-- jQuery and other dependencies (if needed) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

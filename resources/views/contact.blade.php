@@ -3,7 +3,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<h2 class="thick"><b>KONTAK KAMI</b></h2>
+<div class="content">
+        <h2><b>KONTAK KAMI</b></h2>
+    </div>
 <section class="contact-container">
         <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
         <form action="{{route('message.store')}}" class="contact-layout" method="POST">

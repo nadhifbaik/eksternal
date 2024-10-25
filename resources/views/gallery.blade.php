@@ -1,11 +1,13 @@
 @extends('layouts.user')
 @section('content')
-<h2 class="thick"><b>GALERI KAMI</b></h2>
+    <div class="content">
+        <h2><b>GALLERY KAMI</b></h2>
+    </div>
+    @php $gallery = App\Models\Gallery::orderBy('id', 'desc')->get(); @endphp
     <!-- Carousel -->
     <section class="slider">
-        <div id="foodCarousel" class="carousel slide content" data-bs-ride="carousel">
+        <div id="foodCarousel" class="carousel slide content-gallery" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @php $gallery = App\Models\Gallery::orderBy('id', 'desc')->get(); @endphp
                 @foreach ($gallery->take(6) as $key => $item)
                     @if ($item->slider)
                         <!-- Pastikan slider tidak kosong -->

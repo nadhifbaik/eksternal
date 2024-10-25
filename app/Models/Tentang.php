@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tentang extends Model
 {
     use HasFactory;
-    protected $fillable = ['image','judul','deskripsi'];
-    protected $visible = ['image', 'judul', 'deskripsi'];
+    protected $fillable = ['judul', 'konten', 'deskripsi'];
+    protected $visible = [ 'judul', 'konten', 'deskripsi'];
 
 }

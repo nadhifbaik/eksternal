@@ -11,6 +11,7 @@ html {
     font-size: 1rem;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    background-color: #f4f4f4;
     will-change: transform;
     /* Memberi tahu browser untuk mengoptimasi elemen ini */
     transform: translateZ(0);
@@ -20,13 +21,12 @@ html {
 /* General Section Styles */
 .slider {
     background-color: #f4f4f4;
-    padding: 50px 0;
-    margin: -60px 0 -200px 0;
+    margin-top: 50px;
 }
 
-.content {
+.content-gallery {
     max-width: 1130px;
-    margin: 280px auto;
+    margin: 140px 130px;
     border-radius: 30px;
 }
 
@@ -34,8 +34,8 @@ html {
 .carousel-item img {
     width: 100%;
     max-height: 450px;
-    border-radius: 30px;
     object-fit: cover;
+    border-radius: 30px;
     margin: 0 20px 20px 0;
 }
 
@@ -57,11 +57,11 @@ html {
 }
 
 .carousel-control-prev {
-    left: -90px;
+    left: -80px;
 }
 
 .carousel-control-next {
-    right: -90px;
+    right: -80px;
 }
 
 .carousel-control-prev-icon i,
@@ -77,12 +77,12 @@ html {
     pointer-events: auto;
 }
 
-/* Galleri */
+/* Photo Section */
 .photo {
     background-color: white;
     padding-top: 35px;
     padding-bottom: 90px;
-    /* margin-bottom: -150px; */
+    margin-bottom: -150px;
 }
 
 .container-img {
@@ -90,7 +90,6 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 90px;
-    padding: 0px 80px;
 }
 
 .rounded-img {
@@ -109,10 +108,10 @@ html {
     object-fit: cover;
     display: block;
 }
+
 /* Tasty Food Section */
 
 .tastyFood {
-    background-color: #f4f4f4;
     padding: 50px 0 50px;
     /* Ubah padding bawah menjadi lebih kecil */
     max-height: 800px;
@@ -125,18 +124,21 @@ html {
 
 .visi {
     background-color: white;
-    padding: 100px 0;
+    padding: 25px 0;
     /* Menambahkan ruang di atas dan bawah */
     min-height: 400px;
     /* Atur tinggi minimum untuk elemen */
+    margin-bottom: -50px;
 }
 
 .misi {
     background-color: white;
-    padding: 100px 0;
+    padding: 25px 0;
     /* Menambahkan ruang di atas dan bawah */
     min-height: 400px;
     /* Atur tinggi minimum untuk elemen */
+    padding-bottom: 90px;
+    margin-bottom: -150px;
 }
 
 .tasty-food-section {
@@ -144,6 +146,8 @@ html {
     max-width: 1100px;
     margin: 250px auto;
     align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
     justify-content: space-between;
 }
 
@@ -259,10 +263,11 @@ html {
 }
 
 .text-content-news {
-    padding-left: 10px;
-    padding-right: 37px;
-    color: black;
-    letter-spacing: 0.05rem;
+    display: flex;
+    flex-direction: column;
+    /* Mengatur konten dalam kolom */
+    justify-content: center;
+    /* Menyelaraskan konten secara vertikal */
 }
 
 .text-content-news h3 {
@@ -278,10 +283,9 @@ html {
 }
 
 .news-content {
-    background-color: #f4f4f4;
-    padding: 130px 0 150px;
-    /* Increased bottom padding to 100px */
-    margin-top: 140px;
+    padding-top: 100px;
+    padding-bottom: 55px;
+    margin-top: 30px;
     /* Keep margin top as is */
 }
 
@@ -300,8 +304,24 @@ html {
     /* Opsional: Untuk memberikan efek sudut melengkung */
 }
 
+.row-news {
+    display: flex;
+    /* Menggunakan Flexbox untuk menyusun kolom */
+    justify-content: center;
+    /* Menempatkan semua konten di tengah */
+    align-items: center;
+    /* Menyelaraskan konten secara vertikal */
+}
+
+.btn-container {
+    display: flex;
+    /* Menggunakan Flexbox untuk container tombol */
+    margin-top: 20px;
+    /* Menambahkan margin atas untuk spasi */
+}
+
+/* Kustomisasi tombol */
 .btn-black {
-    display: inline-block;
     padding: 15px 30px;
     font-size: 14px;
     font-weight: 600;
@@ -322,25 +342,47 @@ html {
     width: 300px;
     /* Lebar tombol */
     display: flex;
+    /* Menggunakan Flexbox untuk teks di dalam tombol */
     justify-content: center;
+    /* Tengah secara horizontal dalam tombol */
     align-items: center;
+    /* Tengah secara vertikal dalam tombol */
 }
 
 .btn-black:hover {
     background-color: #333;
     /* Warna latar belakang saat hover */
+    color: white;
+    /* Pastikan teks tetap putih saat hover */
 }
 
+/* Responsivitas */
 @media (max-width: 768px) {
-    .news-content {
+    .row-news {
+        flex-direction: column;
+        /* Mengatur kolom menjadi satu kolom pada perangkat kecil */
+        align-items: center;
+        /* Menyelaraskan konten di tengah */
+    }
+
+    .text-content-news {
         text-align: center;
+        /* Menyelaraskan teks di tengah */
     }
 }
 
 /* news-other */
 
 .news-other {
+    background-color: white;
+    margin-bottom: -150px;
+    padding-bottom: 130px;
+}
+
+.news-other-title {
+    padding-top: 100px;
     margin: 70px -15px;
+
 }
 
 .berita-card {
@@ -353,7 +395,7 @@ html {
     /* Agar elemen anak tidak keluar dari card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Sedikit bayangan untuk tampilan 3D */
-    min-height: 380px;
+    max-height: 380px;
     min-width: 280px;
     margin: -18px -15px;
 }
@@ -452,9 +494,9 @@ html {
 
 /* Contact Section */
 .contact-container {
+    background-color: white;
     text-align: center;
-    margin-top: 170px;
-    padding: 50px 100px;
+    padding: 100px 100px;
 }
 
 .contact-container h2 {
@@ -465,6 +507,7 @@ html {
 
 /* Form Layout */
 .contact-layout {
+    align-items: center;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
@@ -500,29 +543,59 @@ html {
 }
 
 /* Form Inputs */
+/* Form Inputs */
 .input-field {
     width: 100%;
     padding: 33px;
     border: 2px solid #a5a5a5;
     border-radius: 15px;
     font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Smooth transition for both border and shadow */
 }
 
+.input-field:focus {
+    border-color: #272727;
+    /* Border color on focus */
+    outline: none;
+    /* Removes the default outline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adds shadow on focus */
+}
+
+/* Textarea Field */
 .textarea-field {
     height: 300px;
     width: 100%;
-    /* Ensure textarea takes full width of the right column */
+    border: 2px solid #a5a5a5;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.textarea-field:focus {
+    border-color: #272727;
+    /* Border color on focus for the textarea */
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adds shadow on focus */
 }
 
 /* Button at the bottom */
 .form-group:last-child {
     display: flex;
-    /* Enables flexbox for alignment */
     justify-content: center;
-    /* Center the button horizontally */
     width: 100%;
-    /* Full width of the form group */
 }
+
+
+/* Button at the bottom */
+.form-group:last-child {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 
 .action-button {
     background-color: #000;
@@ -560,7 +633,8 @@ html {
 /* Contact Info Section */
 .info-section {
     display: flex;
-    justify-content: center;
+    background-color: white;
+    justify-content: space-between;
     /* Center the info cards horizontally */
     padding: 40px;
 }
@@ -575,17 +649,14 @@ html {
     background-color: #fff;
 }
 
-.kontak-info {
-    justify-content: space-around;
-    display: flex;
-    width: 80%;
-
-}
-
 .contact-info {
     text-align: center;
-    margin-top: 50px;
 }
+
+.contact-infoo {
+    text-align: left;
+}
+
 
 .contact-info .icon {
     background-color: black;
@@ -630,6 +701,7 @@ html {
         /* Full-width button on small screens */
     }
 }
+
 /* Maps */
 .map {
     margin-top: 100px;
@@ -719,6 +791,10 @@ html {
     margin-top: 15px;
 }
 
+.custom-paragraph {
+    padding-right: 190px;
+}
+
 /* Contact Info */
 .contact-info li,
 .list-unstyled li {
@@ -736,8 +812,9 @@ html {
 /* Button and Other Styles */
 .botten {
     display: grid;
+    text-decoration: none;
     place-items: center;
-    padding-bottom: 15px;
+    padding-top: 50px;
 }
 
 .btn-more {
@@ -746,6 +823,7 @@ html {
     background-color: #000;
     color: #fff;
     border: none;
+    text-decoration: none;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;

@@ -1,6 +1,8 @@
 @extends('layouts.user')
 @section('content')
-    <h2 class="thick"><b>BERITA KAMI</b></h2>
+    <div class="content">
+        <h2><b>BERITA KAMI</b></h2>
+    </div>
     <!-- Hero Section -->
     <section class="news-content">
         <div class="container news-nusantara">

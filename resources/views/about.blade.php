@@ -1,26 +1,18 @@
-@extends('layouts.user')
+    @extends('layouts.user')
     @section('content')
-        <h2 class="content-about"><b>TENTANG KAMI</b></h2>
-
+        <div class="content">
+            <h2><b>TENTANG KAMI</b></h2>
+        </div>
         <section class="tastyFood">
             <div class="container">
                 <div class="row tasty-food-section">
                     <div class="col-md-6 text-content-tasty">
-                        <h3><b>TASTY FOOD</b></h3>
+                        <h3><b>{{ $judul->judul }}</b></h3>
                         <p class="paragraph">
-                            <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum
-                                commodo,
-                                dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque,
-                                vel
-                                luctus ex.
-                                Fusce sit amet viverra ante.</b>
+                            <b>{{ $judul->deskripsi }}</b>
                         </p>
                         <p class="paragraph2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum
-                            commodo,
-                            dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel
-                            luctus ex.
-                            Fusce sit amet viverra ante.
+                            {{ $judul->konten }}
                         </p>
                     </div>
                     <div class="col-md-6 image-content d-flex justify-content-around">
@@ -45,15 +37,8 @@
                     </div>
                     <!-- Bagian Teks Visi -->
                     <div class="col-md-6 text-content">
-                        <h3><b>VISI</b></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque magna aliquet cursus
-                            tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat tellus et
-                            suscipit. Curabitur facilisis lectus vitae eros malesuada eleifend. Mauris eget tellus odio.
-                            Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat. Duis nec ex at ante
-                            volutpat
-                            posuere. Morbi vel nunc tortor. Nulla facilisi. Nulla accumsan ullamcorper purus nec venenatis.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet erat vel leo rutrum
-                            lobortis.</p>
+                        <h3><b>{{ $visi->judul }}</b></h3>
+                        <p>{{ $visi->konten }}</p>
                     </div>
                 </div>
             </div>
@@ -64,15 +49,8 @@
                 <div class="row mt-5">
                     <!-- Bagian Teks Misi -->
                     <div class="col-md-6 text-content">
-                        <h3><b>MISI</b></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque magna aliquet cursus
-                            tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat tellus et
-                            suscipit. Curabitur facilisis lectus vitae eros malesuada eleifend. Mauris eget tellus odio.
-                            Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat. Duis nec ex at ante
-                            volutpat
-                            posuere. Morbi vel nunc tortor. Nulla facilisi. Nulla accumsan ullamcorper purus nec venenatis.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet erat vel leo rutrum
-                            lobortis.</p>
+                        <h3><b>{{ $misi->judul }}</b></h3>
+                        <p>{{ $misi->konten }}</p>
                     </div>
                     <!-- Bagian Gambar Misi -->
                     <div class="col-md-6">
@@ -82,4 +60,5 @@
                 </div>
             </div>
         </section>
+        
     @endsection

@@ -27,8 +27,8 @@ html {
 .hero {
     background-image: url('/assets1/ASET/img-4-2000x2000.png');
     background-size: cover;
-    height: 130vh;
-    width: 130vh;
+    height: 135vh;
+    width: 135vh;
     position: absolute;
     top: -220px;
     right: -220px;
@@ -39,7 +39,7 @@ html {
 .navbar-brand {
     font-size: 1.8rem;
     font-family: Arial, sans-serif;
-    margin-left: -80px;
+    margin-left: -60px;
     color: #000000;
 }
 
@@ -49,7 +49,7 @@ html {
 }
 
 .container h1 {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -61,6 +61,101 @@ html {
 
 .navbar-nav .nav-link:hover {
     color: #8b8b8b;
+}
+
+/* Hamburger menu */
+.navbar-toggler {
+    position: absolute;
+    margin-left: -110px;
+    /* Posisi di sebelah kiri */
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-top: -4px
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    /* Mengubah dari absolute ke fixed untuk membuatnya sticky */
+    top: 0;
+    /* Memastikan sidebar berada di bagian atas */
+    left: -300px;
+    /* Mulai di luar layar sebelah kiri */
+    height: 100vh;
+    /* Tinggi penuh */
+    width: 300px;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    /* Di atas konten lainnya */
+    transition: left 0.3s ease;
+    padding: 1.5rem;
+    border-bottom-right-radius: 18px;
+    /* Radius untuk sidebar sebelah kiri */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Tampilkan sidebar ketika aktif */
+.sidebar.active {
+    left: 0;
+    /* Geser masuk dari kiri */
+}
+
+
+/* Sidebar header styling */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #343a40;
+}
+
+/* Sidebar navigation styling */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: #007bff;
+}
+
+/* Sidebar footer styling */
+.sidebar-footer {
+    font-size: 0.9rem;
+    color: #6c757d;
 }
 
 .content {
@@ -244,6 +339,7 @@ p {
     /* Pindahkan gambar ke atas */
     display: block;
 }
+
 
 /* Content News */
 .news {

@@ -36,8 +36,8 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Kontent</th>
                             <th>Deskripsi</th>
-                            <th>Image</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -47,11 +47,8 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{$data->judul}}</td>
+                                <td>{{$data->konten}}</td>
                                 <td>{{$data->deskripsi}}</td>
-                                <td>
-                                    <img src="{{ asset('/storage/tentang/' . $data->image) }}" class="rounded float-start"
-                                        style="width: 150px">
-                                </td>
                                 <td>
                                     <form action="{{ route('tentang.destroy', $data->id) }}" method="POST" class="float-end">
                                     @csrf

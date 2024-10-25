@@ -25,17 +25,6 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="foto" class="form-label">Image</label>
-                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
-                        id="inputUserstatus" placeholder="image" value="{{ old($tentangs->image) }}">
-                    @error('image')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Judul</label>
                     <input type="text" name="judul" class="form-control @error('judul') is-invlaid @enderror"
                         placeholder="judul">
@@ -46,14 +35,24 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Deskripsi</label>
-                    <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invlaid @enderror"
-                        placeholder="deskripsi">
-                    @error('deskripsi')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                   <label for="konten" class="form-label">Konten</label>
+                            <textarea name="konten" class="form-control @error('konten') is-invalid @enderror"
+                                id="konten" rows="4" placeholder="Konten"></textarea>
+                            @error('konten')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                </div>
+                <div class="mb-3">
+                   <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
+                                id="deskripsi" rows="4" placeholder="Deskripsi"></textarea>
+                            @error('deskripsi')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-sm btn-primary" type="submit">Submit</button>

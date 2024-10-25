@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Gallery;
 use App\Models\Kontak;
-use App\Models\Tentang;
 use App\Models\User;
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,8 +28,7 @@ class HomeController extends Controller
         $berita = Berita::count();
         $gallery = Gallery::count();
         $kontak = Kontak::count();
-        $tentang = Tentang::count();
         $user = User::count();
-        return view('home', compact('berita', 'gallery', 'kontak', 'tentang', 'user'));
+        return view('admin', compact('berita', 'gallery', 'kontak', 'user'));
     }
 }
