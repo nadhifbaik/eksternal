@@ -27,7 +27,7 @@
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control @error('email') is-invlaid @enderror"
-                placeholder="email">
+                placeholder="email" value="{{$kontak->email}}">
                 @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
             <div class="mb-3">
                 <label for="" class="form-label">No Telp</label>
                 <input type="text" name="no_telp" class="form-control @error('no_telp') is-invlaid @enderror"
-                placeholder="no_telp">
+                placeholder="no_telp" value="{{$kontak->no_telp}}">
                 @error('no_telp')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

@@ -38,15 +38,28 @@
         </div>
     </section>
 
+
     <section class="photo">
         <div class="container container-img">
-            <div class="row">
-                @php $gallery = App\Models\Gallery::orderBy('id', 'desc')->get(); @endphp
-                @foreach ($gallery->take(8) as $item)
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <img src="{{ asset('/storage/gallery/' . $item->image) }}" class="rounded-img" alt="Food">
+            <h2 class="photo-title mb-5"><b>GALERI FOTO</b></h2>
+            <div class="row" id="photo-container">
+
+                @php
+                    $gallery = App\Models\Gallery::orderBy('created_at', 'desc')->paginate(8);
+                @endphp
+
+                @foreach ($gallery as $item)
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                        <img src="{{ asset('/storage/gallery/' . $item->image) }}" class="rounded-img img-fluid"
+                            alt="Photo">
                     </div>
                 @endforeach
+                <div class="botten">
+                    @if ($gallery->hasMorePages())
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-black"><b>LIHAT LEBIH BANYAK</b></a>
+                    @endif
+            </div>
+
             </div>
         </div>
     </section>

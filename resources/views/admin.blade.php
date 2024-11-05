@@ -160,13 +160,13 @@
             <div class="gallery-title p-3">
                 <h2 class="m-3"><b>GALLERI KAMI</b></h2>
             </div>
-            <div class="row gallery">
+            <div class="row gallery" id="gallery-container">
 
                 @php
-                    $gallery = App\Models\Gallery::orderBy('id', 'asc')->get();
+                    $gallery = App\Models\Gallery::orderBy('id', 'asc')->paginate(6);
                 @endphp
 
-                @foreach ($gallery->take(6) as $item)
+                @foreach ($gallery as $item)
                     <div class="col-md-3 col-sm-4">
                         <div class="rounded-border">
                             <div class="square-crop">
@@ -179,9 +179,38 @@
 
             </div>
             <div class="botten">
-                <a class="btn-more" href="{{ route('gallery') }}">
-                    LIHAT LEBIH BANYAK
-                </a>
+                @if ($gallery->hasMorePages())
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-more"><b>LIHAT LEBIH BANYAK</b></a>
+                @endif
             </div>
     </section>
+
+    <script>
+        let newsSkip = {{ $gallery->count() }}; // Mulai dengan jumlah berita yang ada
+
+        function loadMore(event) {
+            event.preventDefault(); // Mencegah perilaku default link
+            fetch(`{{ route('newsLoad') }}?skip=${newsSkip}`)
+                .then(response => response.json())
+                .then(data => {
+                    const newsContainer = document.getElementById('gallery-container');
+                    data.forEach(item => {
+                        const newItem = document.createElement('div');
+                        newItem.className = 'col-12 col-sm-6 col-md-3 col-lg-3 mb-4';
+                        newItem.innerHTML = `
+                    <div class="card gallery distance-card">
+                            <img alt="Fresh vegetables on a table" class="card-img-top"
+                                src="{{ asset('/storage/gallery/') }}/${item.image}" />
+
+                        </div>`;
+                        newsContainer.appendChild(newItem);
+                    });
+                    newsSkip += data.length; // Increment skip untuk pemuatan berikutnya
+                    if (data.length < 4) {
+                        document.getElementById('loadMore').style.display = 'none'; // Sembunyikan jika tidak ada lagi
+                    }
+                })
+                .catch(error => console.error('Error loading more gallery:', error));
+        }
+    </script>
 @endsection

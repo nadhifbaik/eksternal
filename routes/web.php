@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\GalleryController;
@@ -28,6 +29,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::get('dashboard/load-more', [AdminController::class, 'loadMore'])->name('newsLoad');
 
 // Route Admin(Backend)
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -49,6 +51,12 @@ Route::get('gallery', [FrontController::class, 'gallery'])->name('gallery');
 Route::get('news', [FrontController::class, 'news'])->name('news');
 Route::get('news/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('contact', [FrontController::class, 'contact'])->name('contact');
+
+
+Route::get('news/show/{id}', [FrontController::class, 'show'])->name('news.show');
+
+
+
 Route::post('contact', [App\Http\Controllers\MessagesController::class, 'store'])->name('message.store');
 
 

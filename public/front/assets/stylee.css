@@ -82,7 +82,13 @@ html {
     background-color: white;
     padding-top: 35px;
     padding-bottom: 90px;
-    margin-bottom: -150px;
+    /* margin-bottom: -150px; */
+}
+
+
+#photo-container {
+    margin: 0 auto;
+    /* Memusatkan kontainer */
 }
 
 .container-img {
@@ -90,13 +96,18 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 90px;
+    padding: 0px 10px;
+}
+
+.container-img img {
+    align-items: center;
 }
 
 .rounded-img {
     border-radius: 20px;
     width: 100%;
-    max-width: 270px;
-    height: 270px;
+    max-width: 320px;
+    height: 320px;
     object-fit: cover;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     margin: 10px;
@@ -323,8 +334,8 @@ html {
 /* Kustomisasi tombol */
 .btn-black {
     padding: 15px 30px;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     /* Bold text */
     color: white;
     /* Teks berwarna putih */
@@ -814,22 +825,94 @@ html {
     display: grid;
     text-decoration: none;
     place-items: center;
-    padding-top: 50px;
+    padding-top: 65px;
 }
 
 .btn-more {
     margin-top: 15px;
-    padding: 8px 16px;
+    padding: 6px 16px;
     background-color: #000;
     color: #fff;
     border: none;
     text-decoration: none;
     border-radius: 5px;
     text-transform: uppercase;
-    font-weight: bold;
+
 }
 
 .btn-more:hover {
-    background-color: #555;
+    background-color: #949292;
     transition: background-color 0.3s;
+}
+/* berita details */
+.news-detail {
+    margin-top: 85px;
+    /* Jarak atas */
+    width: 900px;
+}
+
+.news-content-detail {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    /* Garis batas untuk pemisahan */
+    border-radius: 18px;
+    /* Sudut melengkung */
+    padding: 20px;
+    /* Jarak dalam kontainer */
+    background-color: #fff;
+    /* Latar belakang putih */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan halus */
+}
+
+.news-image {
+    flex: 0 0 400px;
+    /* Ukuran tetap untuk gambar */
+    max-width: 400px;
+    margin-right: 20px;
+    /* Jarak antara gambar dan teks */
+}
+
+.news-image img {
+    width: 100%;
+    /* Gambar responsif */
+    height: auto;
+    /* Mempertahankan aspek rasio */
+    border-radius: 18px;
+    /* Sudut melengkung untuk gambar */
+}
+
+.news-text {
+    flex: 1;
+    /* Biarkan teks mengambil sisa ruang */
+
+}
+
+.news-title {
+    font-size: 35px;
+    /* Ukuran font untuk judul */
+    font-weight: 700;
+    /* Tebal */
+    margin-bottom: 10px;
+    /* Jarak bawah judul */
+    color: #333;
+    /* Warna judul */
+}
+
+.news-description {
+    margin-bottom: 10px;
+    /* Jarak antar paragraf */
+    line-height: 1.6;
+    /* Tinggi baris untuk keterbacaan */
+    color: #555;
+    /* Warna teks */
+}
+
+.news-date {
+    margin-bottom: 15px;
+    /* Jarak bawah tanggal */
+    font-size: 14px;
+    /* Ukuran font untuk tanggal */
+    color: #777;
+    /* Warna teks tanggal */
 }

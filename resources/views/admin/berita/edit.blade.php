@@ -38,7 +38,7 @@
                 <div class="mb-3">
                     <label class="form-label">Judul</label>
                     <input type="text" name="judul" class="form-control @error('judul') is-invlaid @enderror"
-                        placeholder="judul">
+                        placeholder="judul" value="{{$berita->judul}}">
                     @error('judul')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                 <div class="mb-3">
                     <label class="form-label">Deskripsi</label>
                     <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invlaid @enderror"
-                        placeholder="deskripsi">
+                        placeholder="deskripsi" value="{{$berita->deskripsi}}">
                     @error('deskripsi')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -31,7 +31,7 @@
     </section>
     <section class="news-other">
         <div class="container">
-            <h3 class="news-other"><b>BERITA LAINNYA</b></h3>
+            <h3 class="news-other-title"><b>BERITA LAINNYA</b></h3>
             <div class="row g-5" id="news-container">
                 @php
                     $berita = App\Models\Berita::orderBy('id', 'asc')->paginate(4);
@@ -45,16 +45,16 @@
                             <div class="card-body d-flex">
                                 <h5 class="card-title">{{ $item->judul }}</h5>
                                 <p class="card-text">{{ $item->deskripsi }}</p>
-                                <a class="read-more" href="#">
+                                <a class="read-more" href="{{ route('news.show', $item->id) }}">
                                     Baca selengkapnya
                                 </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
+                <div class="botten">
                     @if ($berita->hasMorePages())
-                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-black"><b>LIHAT LEBIH BANYAK</b></a>
                     @endif
             </div>
         </div>
@@ -78,7 +78,7 @@
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ $item->judul }}</h5>
                                 <p class="card-text">{{ $item->deskripsi }}</p>
-                                <a class="read-more" href="#">
+                                <a class="read-more" href="{{ route('news.show', '') }}/${ item.id} }}">
                                     Baca selengkapnya
                                 </a>
                             </div>

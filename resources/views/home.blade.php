@@ -2,8 +2,9 @@
 
 @section('content')
     <center>
-<h1>ADMIN</h1>
-</center>
+        <h1>SELAMAT DATANG DI</h1>
+        <h2>HALAMAN ADMIN</h2>
+    </center>
 <div class="row row-cols-1 row-cols-xl-3">
     <div class="col">
           <div class="card rounded-4">

@@ -37,9 +37,9 @@ html {
 }
 
 .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-family: Arial, sans-serif;
-    margin-left: -60px;
+    margin-left: -76px;
     color: #000000;
 }
 
@@ -49,14 +49,14 @@ html {
 }
 
 .container h1 {
-    font-size: 2em;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
 .navbar-nav .nav-link {
     font-weight: 500;
-    margin-right: 20px;
-    margin-top: 10px;
+    margin-right: 10px;
+    margin-top: 4px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -66,12 +66,12 @@ html {
 /* Hamburger menu */
 .navbar-toggler {
     position: absolute;
-    margin-left: -110px;
+    margin-left: -135px;
     /* Posisi di sebelah kiri */
     background-color: transparent;
     border: none;
     color: rgb(0, 0, 0);
-    font-size: 1.8rem;
+    font-size: 2.0rem;
     cursor: pointer;
     margin-top: -4px
 }
@@ -292,15 +292,17 @@ p {
 }
 
 .card {
-    padding: 20px;
+    padding: 25px;
     /* Padding untuk card */
     text-align: center;
+    margin-left: 12px;
+    right: 22px;
     /* Pusatkan teks di dalam kartu */
-    border-radius: 15px;
+    border-radius: 17px;
     /* Sudut melengkung */
-    max-width: 270px;
+    max-width: 275px;
     /* Lebar maksimum */
-    min-height: 300px;
+    min-height: 200px;
     /* Tinggi minimum untuk kartu (pendek) */
     margin-top: 100px;
     /* Jarak atas dari galeri */
@@ -352,8 +354,8 @@ p {
 .container-news {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3.30rem;
+    padding-right: 3.30rem;
     margin-top: 1rem;
 }
 
@@ -517,9 +519,9 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
-    padding-bottom: 15px;
-    margin-top: 10px;
+    gap: 65px;
+    padding-bottom: 35px;
+    margin-top: 5px;
     border-radius: 10px;
     /* Radius sudut */
 
@@ -536,12 +538,14 @@ p {
 }
 
 .gallery .col-md-3 {
-    padding: 5px;
+    padding: 0;
     /* Adjust the padding to control the spacing */
 }
 
 .rounded-border {
     border: 1px solid #ddd;
+    margin-left: -25px;
+    width: 400px;
     /* Light border */
     border-radius: 18px;
     /* Rounded corners */

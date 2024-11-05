@@ -46,9 +46,24 @@
                         @foreach ($tentangs as $data)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{$data->judul}}</td>
-                                <td>{{$data->konten}}</td>
-                                <td>{{$data->deskripsi}}</td>
+                                <td>
+                                <span class="text-toggle" onclick="toggleText(this)">
+                                    {{ Str::limit($data->judul, 25, ' ...') }}
+                                </span>
+                                <span class="full-text" style="display: none;">{{ $data->judul }}</span>
+                            </td>
+                            <td>
+                                <span class="text-toggle" onclick="toggleText(this)">
+                                    {{ Str::limit($data->konten, 80, ' ...') }}
+                                </span>
+                                <span class="full-text" style="display: none;">{{ $data->konten }}</span>
+                            </td>
+                            <td>
+                                <span class="text-toggle" onclick="toggleText(this)">
+                                    {{ Str::limit($data->deskripsi, 80, ' ...') }}
+                                </span>
+                                <span class="full-text" style="display: none;">{{ $data->deskripsi }}</span>
+                            </td>
                                 <td>
                                     <form action="{{ route('tentang.destroy', $data->id) }}" method="POST" class="float-end">
                                     @csrf
@@ -89,5 +104,20 @@
                 }
             }
         });
+    </script>
+    <script>
+        function toggleText(element) {
+            const fullTextElement = element.nextElementSibling; // Ambil elemen berikutnya yang merupakan teks penuh
+            const isHidden = fullTextElement.style.display === 'none';
+
+            // Tampilkan atau sembunyikan teks penuh
+            if (isHidden) {
+                fullTextElement.style.display = 'inline'; // Tampilkan teks penuh
+                element.style.display = 'none'; // Sembunyikan teks terbatas
+            } else {
+                fullTextElement.style.display = 'none'; // Sembunyikan teks penuh
+                element.style.display = 'inline'; // Tampilkan teks terbatas
+            }
+        }
     </script>
 @endpush
