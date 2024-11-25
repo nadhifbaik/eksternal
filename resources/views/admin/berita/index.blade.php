@@ -53,10 +53,13 @@
                                         style="width: 150px">
                                 </td>
                                 <td>
-                                    <form action="{{ route('berita.destroy', $data->id) }}" method="POST" class="float-end">
+                                    <form action="{{ route('berita.destroy', $data->id ) }}" method="POST" class="float-end">
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('berita.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                    |
+                                    <a href="{{ route('berita.show', $data->id) }}"
+                                            class="btn btn-sm btn-warning text-white">Show</a>
                                     |
                                     <a href="{{ route('berita.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                         data-confirm-delete="true">Delete</a>

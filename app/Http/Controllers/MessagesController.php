@@ -40,8 +40,8 @@ class MessagesController extends Controller
         $message->email = $request->email;
         $message->message = $request->message;
         $message->save();
-        Alert::success('Success', 'Data Berhasil di Simpan')->autoClose(5000);
-        return redirect()->route('message.index');
+        toast()->success('Success', 'Pesan Berhasil di Kirim')->autoClose(5000);
+        return redirect()->route('contact');
     }
 
     /**
@@ -96,4 +96,5 @@ class MessagesController extends Controller
 
     }
 }
+
 

@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    public function home()
+    public function admin()
     {
+        // Ambil berita terbaru terlebih dahulu
+        $latestNews = Berita::orderBy('created_at', 'desc')->first();
 
-        return view('home');
+        // Ambil berita lainnya dari yang terbaru sampai terlama, kecuali yang terbaru
+        $otherNews = Berita::orderBy('created_at', 'desc')->skip(1)->take(4)->get();
+
+        return view('admin', compact('latestNews', 'otherNews'));
     }
     public function about()
     {

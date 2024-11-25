@@ -10,6 +10,10 @@ html {
     overflow-x: hidden;
     font-size: 1rem;
     scroll-behavior: smooth;
+    will-change: transform;
+    /* Memberi tahu browser untuk mengoptimasi elemen ini */
+    transform: translateZ(0);
+    /* Memanfaatkan hardware acceleration */
 }
 
 .ms-auto {
@@ -34,114 +38,220 @@ html {
     margin-top: 30px;
     align-items: center;
     justify-content: space-between;
-    /* Menambahkan jarak antara brand dan menu */
 }
 
 .navbar-nav {
     display: flex;
     align-items: center;
-    /* Menyelaraskan item nav secara vertikal */
-}
-.container h1 {
-    font-size: 2em;
-    font-weight: bold;
 }
 
 .navbar-nav .nav-link {
     color: white;
-    /* Mengubah warna tautan menjadi putih */
     margin-right: 0.7rem;
     font-size: 1rem;
-    /* Ukuran font default */
 }
 
 .navbar .navbar-brand {
-    font-size: 2.1rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-left: -0px;
+    margin-left: -15px;
     text-decoration: none;
-    /* Menghapus garis bawah */
     color: white;
-    /* Warna normal */
     transition: color 0.3s ease;
-    /* Menambahkan transisi untuk perubahan warna */
 }
 
 .navbar .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
     color: #ccc;
-    /* Pastikan hover tetap berwarna putih */
     transition: color 0.3s ease;
-    /* Menambahkan transisi untuk perubahan warna */
+}
+
+/* Content styling */
+.content {
+    position: absolute;
+    top: 75%;
+    left: 20px;
+    /* Space from the left */
+    right: 10%;
+    max-width: 655px;
+    transform: translateY(-50%);
+    /* Centers vertically */
+    padding: 0 20px;
+    color: white;
+    margin-top: -200px;
+    margin-left: 50px;
+}
+
+.content h2 {
+    font-weight: 700;
+    text-align: left;
+    /* Align text to the left */
+    color: white;
+    font-size: 3em;
+    margin: 0;
+    /* Optionally add padding or margin for spacing */
 }
 
 /* Media queries for responsiveness */
 
-
-
-/* Ukuran layar kecil (ponsel) */
+/* Small screens (mobile) */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        /* Ubah menjadi kolom di ponsel */
         align-items: flex-start;
-        /* Menyelaraskan elemen di kiri */
+        margin-top: 20px;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 1.2rem;
+        /* Adjust brand size for smaller screens */
+        margin-left: 55px;
+        /* Center brand */
     }
 
     .navbar-nav {
         flex-direction: column;
-        /* Ubah menjadi kolom untuk item nav */
         width: 100%;
-        /* Mengambil lebar penuh */
         margin-top: 10px;
-        /* Tambahkan margin untuk jarak */
     }
 
     .navbar-nav .nav-link {
         margin-right: 0;
-        /* Menghapus margin kanan untuk item vertikal */
         margin-bottom: 10px;
-        /* Tambahkan jarak antar tautan */
         font-size: 0.9rem;
-        /* Ukuran font lebih kecil untuk ponsel */
+    }
+
+    .content {
+        top: 75%;
+        /* Adjust top position for better centering */
+        left: 1%;
+        /* Reduce left space */
+        right: 10%;
+        /* Adjust right space */
+        max-width: 90%;
+        padding: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .content h2 {
+        font-size: 2em;
+        line-height: 1.2;
+    }
+}
+
+/* Medium screens (tablet) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbar .navbar-brand {
+        font-size: 1.3rem;
+        /* Slightly larger for tablet */
+        margin-left: -15px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .content {
+        left: 10%;
+        right: 10%;
+        max-width: 80%;
+        font-size: 1rem;
+    }
+
+    .content h2 {
+        font-size: 2.5em;
+    }
+}
+
+/* Large screens (desktop) */
+@media (min-width: 992px) {
+    .navbar .navbar-brand {
+        font-size: 1.5rem;
+        /* Default size for large screens */
+        margin-left: -25px;
+    }
+
+    .content {
+        left: 20px;
+        right: 10%;
+        max-width: 655px;
+        font-size: 1.2rem;
+    }
+
+    .content h2 {
+        font-size: 3em;
     }
 }
 
 /* Hamburger menu */
 .navbar-toggler {
-    position: absolute;
-    margin-left: -65px;
-    /* Posisi di sebelah kiri */
     background-color: transparent;
     border: none;
-    color: rgb(248, 246, 246);
-    font-size: 2.1rem;
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
-    margin-top: -4px
+    margin-left: auto;
+    /* Move to the right */
+    margin-top: -40px;
 }
 
-/* Sidebar styling */
+/* Styling untuk sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -300px;
-    /* Start off-screen to the right */
+    right: -300px;
+    /* Mulai di luar layar */
     height: 100vh;
-    /* Full height */
-    width: 300px;
+    /* Fixed height to keep it fully visible */
+    width: 250px;
     background-color: #f8f9fa;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    /* Lower than the navbar-toggler */
-    transition: left 0.3s ease;
-    padding: 1.5rem;
-    border-bottom-left-radius: 18px;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: right 0.3s ease;
+    padding: 1.5rem;
+    border-bottom-left-radius: 18px;
+    overflow-y: auto;
+    /* Ensures content is scrollable inside the sidebar */
 }
 
-/* Sidebar header styling */
+
+/* Menampilkan sidebar saat aktif */
+.sidebar.active {
+    right: 0;
+    /* Masuk dari kanan */
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    /* Warna gelap transparan */
+    z-index: 1000;
+    /* Di bawah sidebar */
+    opacity: 0;
+    /* Mulai dengan transparan */
+    visibility: hidden;
+    /* Mulai tidak terlihat */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Menampilkan overlay saat aktif */
+.overlay.active {
+    opacity: 1;
+    /* Tampilkan overlay */
+    visibility: visible;
+    /* Buat terlihat */
+}
+
+
 .sidebar-header {
     display: flex;
     justify-content: space-between;
@@ -163,7 +273,6 @@ html {
     color: #343a40;
 }
 
-/* Sidebar navigation styling */
 .sidebar-nav {
     list-style: none;
     padding: 0;
@@ -186,49 +295,7 @@ html {
     color: #007bff;
 }
 
-/* Sidebar footer styling */
 .sidebar-footer {
     font-size: 0.9rem;
     color: #6c757d;
-}
-
-/* Show sidebar when active */
-.sidebar.active {
-    left: 0;
-    /* Slide in from the right */
-}
-
-
-
-/* Ukuran layar menengah (tablet) */
-@media (min-width: 768px) and (max-width: 992px) {
-    .navbar-nav .nav-link {
-        font-size: 1rem;
-        /* Ukuran font normal untuk tablet */
-    }
-}
-
-.content {
-    position: absolute;
-    top: 40%;
-    left: 20px;
-    /* Space from the left */
-    right: 10%;
-    max-width: 655px;
-    transform: translateY(-50%);
-    /* Centers vertically */
-    padding: 0 20px;
-    color: white;
-    margin-top: 50px;
-    margin-left: 60px;
-}
-
-.content h2 {
-    font-weight: 900;
-    text-align: left;
-    /* Align text to the left */
-    color: white;
-    font-size: 3em;
-    margin: 0;
-    /* Optionally add padding or margin for spacing */
 }

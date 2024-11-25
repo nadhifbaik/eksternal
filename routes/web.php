@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\FrontController;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin');
 });
 
 Auth::routes();
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('tentang', App\Http\Controllers\TentangController::class);
     Route::resource('message', App\Http\Controllers\MessagesController::class);
+    Route::resource('slider', App\Http\Controllers\SliderController::class);
 });
 Route::get('/', [FrontController::class, 'home']);
 

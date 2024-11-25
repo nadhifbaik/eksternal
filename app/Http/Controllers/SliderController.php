@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-Use Alert;
-use App\Models\Gallery;
+use Alert;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Storage;
 
-class GalleryController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class GalleryController extends Controller
     public function index()
     {
         //Menampilkan data Galery
-        $gallery = Gallery::latest()->paginate(5);
+        $slider = Slider::latest()->paginate(5);
         confirmDelete("Delete", "Are you sure you want to delete?");
-        return view('admin.gallery.index', compact('gallery'));
+        return view('admin.slider.index', compact('slider'));
 
     }
 
@@ -27,8 +27,8 @@ class GalleryController extends Controller
     public function create()
     {
         //Redirect to page add data Galery
-        // $gallery = Gallery::all();
-        return view('admin.gallery.create');
+        // $slider = slider::all();
+        return view('admin.slider.create');
     }
 
     /**
@@ -38,24 +38,24 @@ class GalleryController extends Controller
     {
         //Menambah data Galery
         $this->validate($request, [
-            'image' => 'image|mimes:png,jpg,jpeg',
+            'slider' => 'image|mimes:png,jpg,jpeg',
         ]);
 
-        $gallery = new Gallery($request->all());
+        $slider = new Slider($request->all());
 
-        // Upload Images
-        $images = $request->file('image');
-        $images->storeAs('public/gallery', $images->hashName());
-        $gallery->image = $images->hashName();
-        $gallery->save();
+        // Upload slider
+        $sliders = $request->file('slider');
+        $sliders->storeAs('public/slider', $sliders->hashName());
+        $slider->slider = $sliders->hashName();
+        $slider->save();
         Alert::success('Success', 'Data Added Successfully')->autoClose(2000);
-        return redirect()->route('gallery.index');
+        return redirect()->route('slider.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Gallery $gallery)
+    public function show(slider $slider)
     {
         //
     }
@@ -66,8 +66,8 @@ class GalleryController extends Controller
     public function edit($id)
     {
         //redirect ke halaman Update
-        $gallery = Gallery::findOrFail($id);
-        return view('admin.gallery.edit', compact('gallery'));
+        $slider = Slider::findOrFail($id);
+        return view('admin.slider.edit', compact('slider'));
     }
 
     /**
@@ -77,17 +77,17 @@ class GalleryController extends Controller
     {
         //MengUpdate data Galery
         $this->validate($request, [
-            'image' => 'required',
+            'slider' => 'required',
         ]);
 
-        $gallery = Gallery::findOrFail($id);
-        $images = $request->file('image');
-        $images->storeAs('public/gallery', $images->hashName());
-        Storage::delete('public/gallery/' . $gallery->images);
-        $gallery->image = $images->hashName();
-        $gallery->save();
+        $slider = Slider::findOrFail($id);
+        $sliders = $request->file('slider');
+        $sliders->storeAs('public/slider', $sliders->hashName());
+        Storage::delete('public/slider/' . $slider->sliders);
+        $slider->slider = $sliders->hashName();
+        $slider->save();
         Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
-        return redirect()->route('gallery.index');
+        return redirect()->route('slider.index');
     }
 
     /**
@@ -96,11 +96,11 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         //Delete data Galery
-        $gallery = Gallery::findOrFail($id);
-        Storage::delete('public/gallery/' . $gallery->image);
-        $gallery->delete();
+        $slider = Slider::findOrFail($id);
+        Storage::delete('public/slider/' . $slider->slider);
+        $slider->delete();
         Alert::toast('Succes', 'Data successfully deleted')->success('Succes', 'Data successfully deleted');
 
-        return redirect()->route('gallery.index');
+        return redirect()->route('slider.index');
     }
 }

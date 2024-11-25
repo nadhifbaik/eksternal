@@ -19,14 +19,25 @@ html {
 }
 
 /* General Section Styles */
+/* Slider */
 .slider {
     background-color: #f4f4f4;
-    margin-top: 50px;
+    padding: 90px 0;
+    position: relative;
+    /* Agar kontrol prev/next dapat diposisikan dengan tepat */
 }
 
+/* Kontainer galeri */
 .content-gallery {
     max-width: 1130px;
-    margin: 140px 130px;
+    margin: 240px 130px;
+    border-radius: 30px;
+}
+
+/* Carousel */
+.content-carousel {
+    max-width: 85%;
+    margin: auto;
     border-radius: 30px;
 }
 
@@ -34,9 +45,9 @@ html {
 .carousel-item img {
     width: 100%;
     max-height: 450px;
-    object-fit: cover;
     border-radius: 30px;
-    margin: 0 20px 20px 0;
+    object-fit: cover;
+    /* margin: 0 20px 20px 0; */
 }
 
 /* Carousel Controls */
@@ -56,12 +67,49 @@ html {
     z-index: 2;
 }
 
+/* Optional: Customize button styles for better responsiveness */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+    /* Adjust width as needed */
+    height: 100%;
+    /* Full height of the carousel */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+    /* Fully visible on hover */
+}
+
+/* Media query to adjust button sizes on smaller screens */
+@media (max-width: 768px) {
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 15%;
+        /* Wider buttons on smaller screens */
+    }
+}
+
 .carousel-control-prev {
-    left: -80px;
+    left: -65px;
 }
 
 .carousel-control-next {
-    right: -80px;
+    right: -65px;
+}
+
+@media (max-width: 480px) {
+
+    .carousel-control-prev {
+        left: -25px;
+    }
+
+    .carousel-control-next {
+        right: -25px;
+    }
+
 }
 
 .carousel-control-prev-icon i,
@@ -76,6 +124,7 @@ html {
     opacity: 1;
     pointer-events: auto;
 }
+
 
 /* Photo Section */
 .photo {
@@ -123,8 +172,8 @@ html {
 /* Tasty Food Section */
 
 .tastyFood {
-    padding: 50px 0 50px;
-    /* Ubah padding bawah menjadi lebih kecil */
+    padding: 70px 12px;
+    background-color: #f4f4f4;
     max-height: 800px;
     display: flex;
     flex-direction: column;
@@ -155,10 +204,7 @@ html {
 .tasty-food-section {
     display: flex;
     max-width: 1100px;
-    margin: 250px auto;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
     justify-content: space-between;
 }
 
@@ -190,17 +236,33 @@ html {
 .image-content {
     display: flex;
     gap: 5px;
+    /* Menambah jarak antar gambar */
+    justify-content: center;
+    /* Posisi gambar lebih ke tengah */
     margin-right: 0;
-    /* Menghilangkan margin negatif */
-    overflow: hidden;
+    /* Menghilangkan margin negatif jika ada */
+    background-color: #f4f4f4;
+    /* Latar belakang jika diperlukan */
+
+    /* Menghilangkan padding */
+    border-radius: 15px;
+    /* Opsional: untuk memberi sudut melengkung pada background */
 }
 
 .image-content img {
     width: 250px;
-    height: 350px;
+    /* Pastikan lebar gambar menyesuaikan kontainer */
+    max-width: 230px;
+    /* Batas maksimum lebar gambar */
+    height: auto;
+    /* Agar tinggi menyesuaikan proporsi */
     border-radius: 17px;
+    /* Sudut gambar tetap melengkung */
     object-fit: cover;
+    margin: 0 1px;
+    /* Menambah jarak antar gambar lebih detail */
 }
+
 
 .rounded-image,
 .rounded-image1,
@@ -210,6 +272,23 @@ html {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     /* Pastikan gambar tetap sesuai proporsi */
+}
+
+.rounded-image {
+    width: 100%;
+    /* Memanfaatkan lebar penuh dari kolom */
+    max-width: 300px;
+    /* Tentukan batas maksimum lebar gambar */
+    height: auto;
+    /* Tinggi menyesuaikan proporsi asli */
+    object-fit: cover;
+    /* Memastikan gambar memenuhi kotak tanpa distorsi */
+    border-radius: 17px;
+    /* Sudut melengkung */
+    overflow: hidden;
+    /* Menghindari gambar terpotong */
+    margin: 0 10px;
+    /* Menambah jarak antar gambar */
 }
 
 .rounded-image1 {
@@ -245,7 +324,6 @@ html {
     .tasty-food-section {
         flex-direction: column;
         /* Teks dan gambar akan tersusun vertikal pada layar kecil */
-        margin: 100px auto;
     }
 
     .text-content {
@@ -258,9 +336,7 @@ html {
     }
 
     .image-content img {
-        width: 200px;
-        height: 300px;
-        border-radius: 30px;
+        width: 295px;
     }
 }
 
@@ -282,22 +358,19 @@ html {
 }
 
 .text-content-news h3 {
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
 
 .text-content-news p {
     font-size: 0.8rem;
     color: #000000;
     font-weight: 500;
-    margin-right: -40px;
     line-height: 1.5;
 }
 
 .news-content {
-    padding-top: 100px;
-    padding-bottom: 55px;
-    margin-top: 30px;
-    /* Keep margin top as is */
+    background-color: #f4f4f4;
+    padding-bottom: 70px;
 }
 
 .rounded-image-news {
@@ -309,7 +382,7 @@ html {
     /* Pastikan gambar tetap proporsional */
     overflow: hidden;
     justify-content: center;
-    margin: -30px -15px;
+    margin: 100px -15px;
     /* Jarak antar gambar */
     border-radius: 15px;
     /* Opsional: Untuk memberikan efek sudut melengkung */
@@ -334,8 +407,8 @@ html {
 /* Kustomisasi tombol */
 .btn-black {
     padding: 15px 30px;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
     /* Bold text */
     color: white;
     /* Teks berwarna putih */
@@ -377,8 +450,35 @@ html {
     }
 
     .text-content-news {
-        text-align: center;
+        text-align: justify;
         /* Menyelaraskan teks di tengah */
+        padding: 0 35px;
+        /* Memberikan jarak kanan-kiri */
+    }
+
+    .text-content-news h3 {
+        text-align: left;
+    }
+
+    .rounded-image-news {
+        display: flex;
+        width: 300px;
+        /* Lebar kotak */
+        height: 300px;
+        /* Tinggi kotak */
+        object-fit: cover;
+        /* Menjaga proporsi gambar */
+        border-radius: 15px;
+        /* Tetap memberi sudut melengkung */
+        margin: 80px auto;
+        /* Menempatkan gambar di tengah */
+    }
+
+    .btn-black {
+            width: 80%;
+            /* Membuat tombol melebar 80% dari kontainer */
+            margin: 0 auto;
+            /* Menempatkan tombol di tengah */
     }
 }
 
@@ -391,9 +491,7 @@ html {
 }
 
 .news-other-title {
-    padding-top: 100px;
     margin: 70px -15px;
-
 }
 
 .berita-card {
@@ -495,19 +593,22 @@ html {
 
 /* Responsiveness */
 @media (max-width: 768px) {
-    .berita-card img {
-        height: auto;
-        /* Gambar akan menyesuaikan tinggi yang lebih kecil pada perangkat mobile */
+    .news-other-title {
+        margin: 70px 50px;
+    }
+
+    .berita-card {
+        margin: 0 50px;
     }
 }
 
 /* contact */
 
-/* Contact Section */
+/* KONTAK */
 .contact-container {
-    background-color: white;
     text-align: center;
-    padding: 100px 100px;
+    padding: 20px 20px;
+    margin-top: 15px;
 }
 
 .contact-container h2 {
@@ -518,7 +619,6 @@ html {
 
 /* Form Layout */
 .contact-layout {
-    align-items: center;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
@@ -554,59 +654,29 @@ html {
 }
 
 /* Form Inputs */
-/* Form Inputs */
 .input-field {
     width: 100%;
     padding: 33px;
     border: 2px solid #a5a5a5;
     border-radius: 15px;
     font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    /* Smooth transition for both border and shadow */
 }
 
-.input-field:focus {
-    border-color: #272727;
-    /* Border color on focus */
-    outline: none;
-    /* Removes the default outline */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Adds shadow on focus */
-}
-
-/* Textarea Field */
 .textarea-field {
     height: 300px;
     width: 100%;
-    border: 2px solid #a5a5a5;
-    border-radius: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.textarea-field:focus {
-    border-color: #272727;
-    /* Border color on focus for the textarea */
-    outline: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Adds shadow on focus */
+    /* Ensure textarea takes full width of the right column */
 }
 
 /* Button at the bottom */
 .form-group:last-child {
     display: flex;
+    /* Enables flexbox for alignment */
     justify-content: center;
+    /* Center the button horizontally */
     width: 100%;
+    /* Full width of the form group */
 }
-
-
-/* Button at the bottom */
-.form-group:last-child {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 
 .action-button {
     background-color: #000;
@@ -644,8 +714,7 @@ html {
 /* Contact Info Section */
 .info-section {
     display: flex;
-    background-color: white;
-    justify-content: space-between;
+    justify-content: center;
     /* Center the info cards horizontally */
     padding: 40px;
 }
@@ -660,14 +729,17 @@ html {
     background-color: #fff;
 }
 
+.kontak-info {
+    justify-content: space-around;
+    display: flex;
+    width: 80%;
+
+}
+
 .contact-info {
     text-align: center;
+    margin-top: 50px;
 }
-
-.contact-infoo {
-    text-align: left;
-}
-
 
 .contact-info .icon {
     background-color: black;
@@ -688,9 +760,9 @@ html {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-    }
+    /* .contact-layout {
+                flex-direction: column;
+            } */
 
     .left-column,
     .right-column {
@@ -713,6 +785,7 @@ html {
     }
 }
 
+/* END KONTAK */
 /* Maps */
 .map {
     margin-top: 100px;

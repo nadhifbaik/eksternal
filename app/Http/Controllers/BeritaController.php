@@ -49,7 +49,8 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        return view('admin.berita.show', compact('berita'));
     }
 
     /**
@@ -66,9 +67,9 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //MengUpdate data Galery
+       // vallidate form
         $this->validate($request, [
-            'image' => 'required',
+            'image' => 'image|nullable|mimes:jpeg,jpg,png',
             'judul' => 'required',
             'deskripsi' => 'required',
         ]);
@@ -77,13 +78,19 @@ class BeritaController extends Controller
         $berita->judul = $request->judul;
         $berita->deskripsi = $request->deskripsi;
 
-        //upload image
-        $images = $request->file('image');
-        $images->storeAs('public/berita/', $images->hashName());
-        Storage::delete('public/berita/' . $berita->images);
-        $berita->image = $images->hashName();
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            Storage::delete('public/berita/' . $berita->image);
+
+            // Simpan gambar baru
+            $image = $request->file('image');
+            $image->storeAs('public/berita', $image->hashName());
+            $berita->image = $image->hashName();
+        }
+
         $berita->save();
-        Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
+
+        Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('berita.index');
     }
 

@@ -20,7 +20,7 @@
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-            <a href="{{route('message.create')}}" class="btn btn-primary">Tambah Data</a>
+            <a href="{{route('contact')}}" class="btn btn-primary">Tambah Data</a>
         </div>
     </div>
 </div>
@@ -55,9 +55,6 @@
                             <form action="{{route('message.destroy', ['message' => $data->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                            <a href="{{route('message.edit',$data->id)}}" class="btn btn-sm btn-warning">
-                                Edit
-                            </a> |
                             <a href="{{route('message.destroy', $data->id) }}" class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
                             </form>
                         </td>

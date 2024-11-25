@@ -20,13 +20,13 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('gallery.create') }}" class="btn btn-primary">Tambah Data</a>
+                <a href="{{ route('slider.create') }}" class="btn btn-primary">Tambah Data</a>
             </div>
         </div>
     </div>
     <!--end breadcrumb-->
 
-    <h6 class="mb-0 text-uppercase">Gallery</h6>
+    <h6 class="mb-0 text-uppercase">Slider</h6>
     <hr>
     <div class="card">
         <div class="card-body">
@@ -35,26 +35,26 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Image</th>
+                            <th>Slider</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $i = 1; @endphp
-                        @foreach ($gallery as $data)
+                        @foreach ($slider as $data)
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>
-                                    <img src="{{ asset('/storage/gallery/' . $data->image) }}" class="rounded float-start"
+                                    <img src="{{ asset('/storage/slider/' . $data->slider) }}" class="rounded float-start"
                                         style="width: 150px">
                                 </td>
                                 <td>
-                                    <form action="{{ route('gallery.destroy', $data->id) }}" method="POST">
+                                    <form action="{{ route('slider.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('gallery.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                    <a href="{{ route('slider.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a>
                                     |
-                                    <a href="{{ route('gallery.destroy', $data->id) }}" class="btn btn-sm btn-danger"
+                                    <a href="{{ route('slider.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                         data-confirm-delete="true">Delete</a>
                                 </form>
                                 </td>

@@ -16,7 +16,7 @@
 
     {{-- content Article --}}
     <section class="content-article">
-        <div class="article">
+        <div class="article gap-3">
             <div class="card">
                 <img class="card-image" src="{{ asset('assets1/ASET/img-1.png') }}" alt="">
                 <h2 class="card1 mb-3">
@@ -154,63 +154,29 @@
         </div>
     </section>
 
+
     {{-- content Galery --}}
-    <section class="content-galery" style="background-color: #ffffff">
-        <div class="galery">
+    <section class="photo" style="background-color: white">
+        <div class="container-img">
             <div class="gallery-title p-3">
                 <h2 class="m-3"><b>GALLERI KAMI</b></h2>
             </div>
-            <div class="row gallery" id="gallery-container">
-
+            <div class="row content-img">
                 @php
-                    $gallery = App\Models\Gallery::orderBy('id', 'asc')->paginate(6);
+                    $gallery = App\Models\Gallery::orderBy('id', 'asc')->get();
                 @endphp
-
-                @foreach ($gallery as $item)
-                    <div class="col-md-3 col-sm-4">
-                        <div class="rounded-border">
-                            <div class="square-crop">
-                                <img src="{{ asset('/storage/gallery/' . $item->image) }}"
-                                    class="rounded img-fluid image-shadow">
-                            </div>
-                        </div>
+                @foreach ($gallery->take(6) as $item)
+                    <div class="col-md-4 col-sm-4">
+                        <img src="{{ asset('/storage/gallery/' . $item->image) }}" class="rounded-img" alt="Food"
+                            loading="lazy">
                     </div>
                 @endforeach
-
             </div>
             <div class="botten">
-                @if ($gallery->hasMorePages())
-                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-more"><b>LIHAT LEBIH BANYAK</b></a>
-                @endif
+                <a class="btn-more" href="{{ route('gallery') }}">
+                    LIHAT LEBIH BANYAK
+                </a>
             </div>
+        </div>
     </section>
-
-    <script>
-        let newsSkip = {{ $gallery->count() }}; // Mulai dengan jumlah berita yang ada
-
-        function loadMore(event) {
-            event.preventDefault(); // Mencegah perilaku default link
-            fetch(`{{ route('newsLoad') }}?skip=${newsSkip}`)
-                .then(response => response.json())
-                .then(data => {
-                    const newsContainer = document.getElementById('gallery-container');
-                    data.forEach(item => {
-                        const newItem = document.createElement('div');
-                        newItem.className = 'col-12 col-sm-6 col-md-3 col-lg-3 mb-4';
-                        newItem.innerHTML = `
-                    <div class="card gallery distance-card">
-                            <img alt="Fresh vegetables on a table" class="card-img-top"
-                                src="{{ asset('/storage/gallery/') }}/${item.image}" />
-
-                        </div>`;
-                        newsContainer.appendChild(newItem);
-                    });
-                    newsSkip += data.length; // Increment skip untuk pemuatan berikutnya
-                    if (data.length < 4) {
-                        document.getElementById('loadMore').style.display = 'none'; // Sembunyikan jika tidak ada lagi
-                    }
-                })
-                .catch(error => console.error('Error loading more gallery:', error));
-        }
-    </script>
 @endsection

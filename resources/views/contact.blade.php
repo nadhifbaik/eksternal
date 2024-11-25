@@ -7,23 +7,28 @@
         <h2><b>KONTAK KAMI</b></h2>
     </div>
 <section class="contact-container">
-        <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
-        <form action="{{route('message.store')}}" class="contact-layout" method="POST">
+        <form class="container" action="{{ route('message.store') }}" method="POST">
+            <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
             @csrf
-            <div class="left-column">
-                <div class="form-group">
-                    <input type="text" placeholder="Subject"  class="input-field" name="subject">
+            <div class="row">
+                <!-- Kolom Kiri -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <input type="text" placeholder="Subject" class="form-control input-field" name="subject"
+                            value="{{ old('subject', 'example@gmail.com') }}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" placeholder="Name" class="form-control input-field" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" placeholder="Email" class="form-control input-field" name="email">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Name" class="input-field" name="name">
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email" class="input-field" name="email">
-                </div>
-            </div>
-            <div class="right-column">
-                <div class="form-group">
-                    <textarea placeholder="Message" class="input-field textarea-field" name="message"></textarea>
+                <!-- Kolom Kanan -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <textarea placeholder="Message" class="form-control input-field" name="message" rows="10"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -33,33 +38,32 @@
     </section>
 
     <section class="info-section">
-        @php $kontak = App\Models\Kontak::first(); @endphp
+        @php $kontak = App\Models\Kontak::first(); @endphp <!-- Ambil satu kontak -->
         <div class="container mb-3">
             <div class="row">
-                <div class="col-12 col-md-4 col-sm-4  contact-info">
+                <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h5>EMAIL</h5>
-                    <p class="inpo">{{ $kontak->email }}</p>
+                    <p class="inpo">{{ $kontak->email }}</p> <!-- Menampilkan email -->
                 </div>
                 <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h5>PHONE</h5>
-                    <p class="inpo">{{ $kontak->no_telp }}</p>
+                    <p class="inpo">{{ $kontak->no_telp }}</p> <!-- Menampilkan nomor telepon -->
                 </div>
                 <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h5>LOCATION</h5>
-                    <p class="inpo">{{ $kontak->alamat }}</p>
+                    <p class="inpo">{{ $kontak->alamat }}</p> <!-- Menampilkan alamat -->
                 </div>
             </div>
         </div>
-
     </section>
         {{-- map --}}
     <section class="map">

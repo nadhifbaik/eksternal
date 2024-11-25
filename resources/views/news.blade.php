@@ -10,10 +10,10 @@
                 <!-- Bagian Gambar Misi -->
                 <div class="col-md-6">
                     <img src="{{ asset('assets1/ASET/eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg') }}" alt="News Image"
-                        class="img-fluid rounded-image-news">
+                        class="img-fluid rounded-image-news mb-3">
                 </div>
                 <!-- Bagian Teks Misi -->
-                <div class="col-md-6 text-content-news">
+                <div class="col-12 col-md-6 text-content-news">
                     <h3 class="mb-4"><b>APA SAJA MAKANAN KHAS NUSANTARA?</b></h3>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
                         rutrum commodo,
@@ -23,8 +23,9 @@
                         rutrum commodo,
                         dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel
                         luctus ex. Fusce sit amet viverra ante.</p>
-
-                    <a href="#" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                    <div class="btn-container">
+                        <a href="#" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,9 +37,8 @@
                 @php
                     $berita = App\Models\Berita::orderBy('id', 'asc')->paginate(4);
                 @endphp
-
                 @foreach ($berita as $item)
-                    <div class="col-md-3"> <!-- 4 kolom per baris -->
+                    <div class="col-md-6 col-lg-3"> <!-- 4 kolom per baris -->
                         <div class="card berita-card distance-card">
                             <img alt="Fresh vegetables on a table" class="card-img-top" height="200"
                                 src="{{ asset('/storage/berita/' . $item->image) }}" width="600" />
@@ -54,7 +54,7 @@
                 @endforeach
                 <div class="botten">
                     @if ($berita->hasMorePages())
-                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-black"><b>LIHAT LEBIH BANYAK</b></a>
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-black text-white"><b>LIHAT LEBIH BANYAK</b></a>
                     @endif
             </div>
         </div>

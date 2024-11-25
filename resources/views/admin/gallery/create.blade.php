@@ -25,16 +25,6 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Slider</label>
-                            <input type="file" name="slider" class="form-control @error('slider') is-invalid @enderror"
-                                id="inputUserstatus" placeholder="slider">
-                            @error('image')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
 
 
                         <div class="mb-3">
