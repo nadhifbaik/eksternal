@@ -26,7 +26,7 @@
     </div>
     <!--end breadcrumb-->
 
-    <h6 class="mb-0 text-uppercase">berita</h6>
+    <h6 class="mb-0 text-uppercase">Menu</h6>
     <hr>
     <div class="card">
         <div class="card-body">
@@ -35,33 +35,35 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Judul</th>
+                            <th>Nama</th>
                             <th>Deskripsi</th>
+                            <th>Price</th>
                             <th>Image</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $i = 1; @endphp
-                        @foreach ($berita as $data)
+                        @foreach ($menu as $data)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{$data->judul}}</td>
+                                <td>{{$data->name}}</td>
                                 <td>{{$data->deskripsi}}</td>
+                                <td>{{$data->price}}</td>
                                 <td>
-                                    <img src="{{ asset('/storage/berita/' . $data->image) }}" class="rounded float-start"
+                                    <img src="{{ asset('/storage/menu/' . $data->image) }}" class="rounded float-start"
                                         style="width: 150px">
                                 </td>
                                 <td>
-                                    <form action="{{ route('berita.destroy', $data->id ) }}" method="POST" class="float-end">
+                                    <form action="{{ route('menu.destroy', $data->id ) }}" method="POST" class="float-end">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('berita.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                    <a href="{{ route('menu.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a>
                                     |
-                                    <a href="{{ route('berita.show', $data->id) }}"
+                                    <a href="{{ route('menu.show', $data->id) }}"
                                             class="btn btn-sm btn-warning text-white">Show</a>
                                     |
-                                    <a href="{{ route('berita.destroy', $data->id) }}" class="btn btn-sm btn-danger"
+                                    <a href="{{ route('menu.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                         data-confirm-delete="true">Delete</a>
                                 </form>
                                 </td>

@@ -52,7 +52,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $menu = Menu::findOrFail($id);
-        return view('admin.menu.show', compact('berita'));
+        return view('admin.menu.show', compact('menu'));
     }
 
     /**

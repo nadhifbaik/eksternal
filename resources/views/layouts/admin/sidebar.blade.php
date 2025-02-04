@@ -45,6 +45,8 @@
               </li>
               <li><a href="{{ route('tentang.index') }}"><i class="material-icons-outlined">arrow_right</i>Tentang</a>
               </li>
+              <li><a href="{{ route('menu.index') }}"><i class="material-icons-outlined">arrow_right</i>Menu</a>
+              </li>
               <li><a href="{{ route('message.index') }}"><i class="material-icons-outlined">arrow_right</i>Message</a>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\SliderController;
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('gallery', App\Http\Controllers\GalleryController::class);
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('tentang', App\Http\Controllers\TentangController::class);
+    Route::resource('menu', App\Http\Controllers\MenuController::class);
     Route::resource('message', App\Http\Controllers\MessagesController::class);
 });
 Route::get('/', [FrontController::class, 'home']);
@@ -62,3 +64,7 @@ Route::post('contact', [App\Http\Controllers\MessagesController::class, 'store']
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

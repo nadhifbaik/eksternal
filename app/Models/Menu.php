@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+    protected $fillable = ['image','name','deskripsi', 'price'];
+    protected $visible = ['image', 'name', 'deskripsi', 'price'];
 }
