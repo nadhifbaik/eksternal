@@ -3,14 +3,10 @@
     <div class="content">
         <h2><b>GALLERY KAMI</b></h2>
     </div>
-    @php $slider = App\Models\Slider::orderBy('id', 'desc')->get(); @endphp
     <!-- Carousel -->
     <section class="slider">
         <div id="foodCarousel" class="carousel slide content-carousel" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @php
-                    $slider = App\Models\Slider::get();
-                @endphp
                 @forelse ($slider as $item)
                     <div class="carousel-item active">
                         <img src="{{ asset('/storage/slider/' . $item->slider) }}" class="d-block img-fluid" alt="Food 1">

@@ -26,6 +26,20 @@
                             @enderror
                         </div>
 
+                         <div class="card-body">
+                    <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Slider</label>
+                            <input type="file" name="slider" class="form-control @error('slider') is-invalid @enderror"
+                                id="inputUserstatus" placeholder="image">
+                            @error('slider')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
 
                         <div class="mb-3">
                             <div class="d-md-flex d-grid align-items-center gap-3">

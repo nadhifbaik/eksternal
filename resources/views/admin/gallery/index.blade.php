@@ -36,6 +36,7 @@
                         <tr>
                             <th>No</th>
                             <th>Image</th>
+                            <th>Slider</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,6 +47,10 @@
                                 <td>{{ $i++ }}</td>
                                 <td>
                                     <img src="{{ asset('/storage/gallery/' . $data->image) }}" class="rounded float-start"
+                                        style="width: 150px">
+                                </td>
+                                <td>
+                                    <img src="{{ asset('/storage/gallery/' . $data->slider) }}" class="rounded float-start"
                                         style="width: 150px">
                                 </td>
                                 <td>

@@ -100,7 +100,7 @@
                       <button type="submit" class="btn btn-grd-primary">Login</button>
                     </div>
                   </div>
-                  <div class="col-12">
+                   <div class="col-12">
                     <div class="text-start">
                       <p class="mb-0">Don't have an account yet? <a href="{{url('register')}}">Sign up here</a>
                       </p>

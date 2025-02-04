@@ -8,7 +8,7 @@
     </div>
 <section class="contact-container">
         <form class="container" action="{{ route('message.store') }}" method="POST">
-            <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
+            <h2 class="mb-5"><b>TESTYMONI</b></h2>
             @csrf
             <div class="row">
                 <!-- Kolom Kiri -->

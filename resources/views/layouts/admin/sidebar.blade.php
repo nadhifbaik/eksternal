@@ -47,8 +47,6 @@
               </li>
               <li><a href="{{ route('message.index') }}"><i class="material-icons-outlined">arrow_right</i>Message</a>
               </li>
-              <li><a href="{{ route('slider.index') }}"><i class="material-icons-outlined">arrow_right</i>Slider</a>
-              </li>
             </ul>
           </li>
          </ul>

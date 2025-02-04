@@ -44,7 +44,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('tentang', App\Http\Controllers\TentangController::class);
     Route::resource('message', App\Http\Controllers\MessagesController::class);
-    Route::resource('slider', App\Http\Controllers\SliderController::class);
 });
 Route::get('/', [FrontController::class, 'home']);
 

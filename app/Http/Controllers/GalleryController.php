@@ -39,6 +39,7 @@ class GalleryController extends Controller
         //Menambah data Galery
         $this->validate($request, [
             'image' => 'image|mimes:png,jpg,jpeg',
+            'slider' => 'image|mimes:png,jpg,jpeg',
         ]);
 
         $gallery = new Gallery($request->all());
@@ -47,6 +48,10 @@ class GalleryController extends Controller
         $images = $request->file('image');
         $images->storeAs('public/gallery', $images->hashName());
         $gallery->image = $images->hashName();
+
+        $sliders = $request->file('slider');
+        $sliders->storeAs('public/gallery', $sliders->hashName());
+        $gallery->slider = $sliders->hashName();
         $gallery->save();
         Alert::success('Success', 'Data Added Successfully')->autoClose(2000);
         return redirect()->route('gallery.index');
@@ -78,6 +83,7 @@ class GalleryController extends Controller
         //MengUpdate data Galery
         $this->validate($request, [
             'image' => 'required',
+            'slider' => 'image|nullable|mimes:jpeg,jpg,png',
         ]);
 
         $gallery = Gallery::findOrFail($id);
@@ -85,6 +91,17 @@ class GalleryController extends Controller
         $images->storeAs('public/gallery', $images->hashName());
         Storage::delete('public/gallery/' . $gallery->images);
         $gallery->image = $images->hashName();
+
+        if ($request->hasFile('slider')) {
+            // Hapus gambar lama jika ada
+            Storage::delete('public/slider/' . $gallery->image);
+
+            // Simpan gambar baru
+            $sliders = $request->file('slider');
+            $sliders->storeAs('public/slider', $sliders->hashName());
+            $gallery->slider = $sliders->hashName();
+        }
+
         $gallery->save();
         Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
         return redirect()->route('gallery.index');
@@ -98,6 +115,7 @@ class GalleryController extends Controller
         //Delete data Galery
         $gallery = Gallery::findOrFail($id);
         Storage::delete('public/gallery/' . $gallery->image);
+        Storage::delete('public/slider/' . $gallery->slider);
         $gallery->delete();
         Alert::toast('Succes', 'Data successfully deleted')->success('Succes', 'Data successfully deleted');
 
