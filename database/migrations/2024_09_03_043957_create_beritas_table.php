@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('judul');
             $table->string('deskripsi');
+            $table->string('slug')->unique(); // Menambahkan kolom slug
             $table->timestamps();
         });
     }

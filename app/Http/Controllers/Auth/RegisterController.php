@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -69,4 +69,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    protected function registered(\illuminate\Http\Request $request, $user)
+    {
+        // logout the user after registration
+        $this->guard()->logout();
+
+        // redirect to the login page
+        return redirect($this->redirectPath())->with('status', 'Registration successful');
+    }
+
 }

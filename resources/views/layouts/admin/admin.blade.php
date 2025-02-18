@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-bs-theme="semi-dark">
+<html lang="en" data-bs-theme="dark-theme">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TASTY FOOD</title>
   <!--favicon-->
-  <link rel="icon" href="{{asset('assets/images/favicon-32x32.png')}}" type="image/png">
+  <link rel="icon" href="{{asset('assets/images/logo.png')}}" type="image/png">
   <!-- loader-->
 	<link href="{{asset('assets/css/pace.min.css')}}" rel="stylesheet">
 	<script src="{{asset('assets/js/pace.min.js')}}"></script>
@@ -80,6 +80,13 @@
 	   new PerfectScrollbar(".user-list")
   </script>
   @stack('scripts')
+  <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
+    <script>
+        document.querySelectorAll("textarea").forEach((el) => {
+            ClassicEditor.create(el)
+                .catch(error => console.error(error));
+        });
+    </script>
   @include('sweetalert::alert')
 
 

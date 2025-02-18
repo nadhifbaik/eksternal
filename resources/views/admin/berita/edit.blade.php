@@ -21,13 +21,13 @@
     <!--end breadcrumb-->
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('berita.update', $berita->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('berita.update', $beritas->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="foto" class="form-label">Image</label>
                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
-                        id="inputUserstatus" placeholder="image" value="{{ old($berita->image) }}">
+                        id="inputUserstatus" placeholder="image" value="{{ old($beritas->image) }}">
                     @error('image')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                 <div class="mb-3">
                     <label class="form-label">Judul</label>
                     <input type="text" name="judul" class="form-control @error('judul') is-invlaid @enderror"
-                        placeholder="judul" value="{{$berita->judul}}">
+                        placeholder="judul" value="{{$beritas->judul}}">
                     @error('judul')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -46,11 +46,11 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Deskripsi</label>
-                    <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invlaid @enderror"
-                        placeholder="deskripsi" value="{{$berita->deskripsi}}">
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
+                        id="deskripsi" rows="4" placeholder="Deskripsi">{{ old('deskripsi', $beritas->deskripsi) }}</textarea>
                     @error('deskripsi')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback" role="alert">`
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -63,3 +63,11 @@
         </div>
     </div>
 @endsection
+
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
+<script>
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
+</script>

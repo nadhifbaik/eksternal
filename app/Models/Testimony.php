@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Testimony extends Model
 {
     use HasFactory;
+    protected $fillable = ['messages', 'rating'];
+    protected $visible = [ 'messages', 'rating'];
+
 }

@@ -7,9 +7,12 @@
     <section class="slider">
         <div id="foodCarousel" class="carousel slide content-carousel" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @forelse ($slider as $item)
+                @php
+                $gallery = App\Models\Gallery::orderBy('created_at', 'desc')->paginate(3);
+                @endphp
+                @forelse ($gallery as $item)
                     <div class="carousel-item active">
-                        <img src="{{ asset('/storage/slider/' . $item->slider) }}" class="d-block img-fluid" alt="Food 1">
+                        <img src="{{ asset('/storage/gallery/' . $item->slider) }}" class="d-block img-fluid" alt="Food 1">
                     </div>
                 @empty
                     <div class="col-12">
@@ -50,9 +53,11 @@
                 @endphp
 
                 @foreach ($gallery as $item)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="square">
                         <img src="{{ asset('/storage/gallery/' . $item->image) }}" class="rounded-img img-fluid"
                             alt="Photo">
+                        </div>
                     </div>
                 @endforeach
                 <div class="botten">

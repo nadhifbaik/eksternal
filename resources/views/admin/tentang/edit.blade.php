@@ -21,7 +21,8 @@
     <!--end breadcrumb-->
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('tentang.update', ['tentang' => $tentangs->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('tentang.update', ['tentang' => $tentangs->id]) }}" method="post"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
@@ -35,24 +36,24 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                   <label for="konten" class="form-label">Konten</label>
-                            <textarea name="konten" class="form-control @error('konten') is-invalid @enderror"
-                                id="konten" rows="4" placeholder="Konten"></textarea>
-                            @error('konten')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                    <label for="konten" class="form-label">Konten</label>
+                    <textarea name="konten" class="form-control @error('konten') is-invalid @enderror" id="konten" rows="4"
+                        placeholder="Konten"></textarea>
+                    @error('konten')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                   <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
-                                id="deskripsi" rows="4" placeholder="Deskripsi"></textarea>
-                            @error('deskripsi')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="4"
+                        placeholder="Deskripsi"></textarea>
+                    @error('deskripsi')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-sm btn-primary" type="submit">Submit</button>

@@ -36,15 +36,15 @@
                             @enderror
                           </div>
                           <div class="mb-3">
-                            <label class="form-label">Deskripsi</label>
-                            <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invlaid @enderror"
-                                placeholder="deskripsi">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
+                                id="deskripsi" rows="4" placeholder="Deskripsi"></textarea>
                             @error('deskripsi')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
-                          </div>
+                        </div>
                         <div class="mb-3">
                             <div class="d-md-flex d-grid align-items-center gap-3">
                                 <button type="submit" class="btn btn-primary px-4">Submit</button>
@@ -58,5 +58,10 @@
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection
-
-x
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
+<script>
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
+</script>

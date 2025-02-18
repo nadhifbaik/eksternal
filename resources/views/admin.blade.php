@@ -5,10 +5,9 @@
         <div class="grid-container p-3 text-center ">
             <h2 class="m-3"><b>TENTANG KAMI</b></h2>
             <div class=" abouteText col-6 mx-center my-4 text-center">
-                <p class="abouteText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
-                    rutrum commodo, dui
-                    diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel luctus ex.
-                    Fusce sit amet viverra ante.</p>
+                <p class="abouteText">
+                    {{ $judul->konten }}
+                </p>
             </div>
             <div class="black-line mb-3"></div><br>
         </div>
@@ -56,6 +55,7 @@
         </div>
     </section>
 
+
     {{-- content News --}}
     <section class="content-news">
         <div class="news p-3">
@@ -65,88 +65,35 @@
                     <div class="col-md-6">
                         <div class="news-card-big">
                             <div class="aspect-ratio">
-                                <img src="{{ asset('assets1/ASET/fathul-abrar-T-qI_MI2EMA-unsplash.jpg') }}"
-                                    class="news-img-top" alt="Food Image">
+                                <img src="{{ asset('/storage/beritas/' . $latestNews->image) }}" class="news-img-top"
+                                    alt="{{ $latestNews->title }}">
                             </div>
                             <div class="news-body content-news mb-auto">
-                                <h5 class="news-title"> LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</h5>
-                                <p class="news-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Fuscescelerisque magna aliquet
-                                    cursus tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat
-                                    tellus et suscipit. Curabitur facilisis lectus vitae eros malesuada eleifend. Mauris
-                                    eget tellus odio. Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat.
-                                </p>
-                                <a href="#" class="read-more card-news-big">Baca selengkapnya</a>
+                                <h5 class="news-title">{{ $latestNews->judul }}</h5>
+                                <p class="news-text-big">{!! Str::limit(strip_tags($latestNews->deskripsi), 550) !!}</p>
+                                <a href="{{ route('berita.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
+                                    selengkapnya</a>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets1/ASET/sanket-shah-SVA7TyHxojY-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets1/ASET/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
+                            @foreach ($otherNews as $news)
+                                <div class="col-sm-6">
+                                    <div class="news-card mb-4">
+                                        <div class="aspect-ratio">
+                                            <img src="{{ asset('/storage/beritas/' . $news->image) }}" class="news-img-top"
+                                                alt="{{ $news->title }}">
+                                        </div>
+                                        <div class="news-body">
+                                            <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
+                                            <p class="news-text">{!! Str::limit(strip_tags($news->deskripsi), 100) !!}</p>
+                                            <a href="{{ route('berita.show', $news->slug) }}" class="read-more">Baca
+                                                selengkapnya</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets1/ASET/jimmy-dean-Jvw3pxgeiZw-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets1/ASET/luisa-brimble-HvXEbkcXjSk-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca
-                                            selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -154,7 +101,7 @@
         </div>
     </section>
 
-
+    
     {{-- content Galery --}}
     <section class="photo" style="background-color: white">
         <div class="container-img">

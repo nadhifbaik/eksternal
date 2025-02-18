@@ -128,47 +128,36 @@ html {
 
 /* Photo Section */
 .photo {
+    justify-content: center;
     background-color: white;
     padding-top: 35px;
     padding-bottom: 90px;
-    /* margin-bottom: -150px; */
+    margin-bottom: -150px;
 }
 
 
-#photo-container {
-    margin: 0 auto;
-    /* Memusatkan kontainer */
-}
-
-.container-img {
+.col-lg-3 {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 90px;
-    padding: 0px 10px;
 }
 
-.container-img img {
-    align-items: center;
-}
-
-.rounded-img {
-    border-radius: 20px;
+.square {
+    position: relative;
     width: 100%;
-    max-width: 320px;
-    height: 320px;
-    object-fit: cover;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 10px;
+    padding-bottom: 100%; /* Aspek rasio 1:1 untuk kotak */
 }
 
-.rounded-img img {
+.square img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
 }
-
 /* Tasty Food Section */
 
 .tastyFood {
@@ -343,18 +332,14 @@ html {
 /* news */
 
 .row-news {
-    display: flex;
-    /* Menggunakan flexbox untuk satu baris */
-    align-items: center;
-    /* Vertikal center pada elemen */
+    display: flex; /* Menggunakan flexbox untuk satu baris */
+    align-items: center; /* Vertikal center pada elemen */
 }
 
 .text-content-news {
     display: flex;
-    flex-direction: column;
-    /* Mengatur konten dalam kolom */
-    justify-content: center;
-    /* Menyelaraskan konten secara vertikal */
+    flex-direction: column; /* Mengatur konten dalam kolom */
+    justify-content: center; /* Menyelaraskan konten secara vertikal */
 }
 
 .text-content-news h3 {
@@ -370,115 +355,82 @@ html {
 
 .news-content {
     background-color: #f4f4f4;
-    padding-bottom: 70px;
+    padding-bottom: 10px;
 }
 
 .rounded-image-news {
-    width: 100%;
-    /* Lebar lebih besar */
-    height: 500px;
-    /* Tinggi lebih kecil */
-    object-fit: cover;
-    /* Pastikan gambar tetap proporsional */
+    width: 85%; /* Lebar lebih besar */
+    height: 525px; /* Tinggi lebih kecil */
+    object-fit: cover; /* Pastikan gambar tetap proporsional */
     overflow: hidden;
     justify-content: center;
-    margin: 100px -15px;
-    /* Jarak antar gambar */
-    border-radius: 15px;
-    /* Opsional: Untuk memberikan efek sudut melengkung */
+    margin: 100px -15px; /* Jarak antar gambar */
+    border-radius: 20px; /* Opsional: Untuk memberikan efek sudut melengkung */
 }
 
 .row-news {
-    display: flex;
-    /* Menggunakan Flexbox untuk menyusun kolom */
-    justify-content: center;
-    /* Menempatkan semua konten di tengah */
-    align-items: center;
-    /* Menyelaraskan konten secara vertikal */
+    display: flex; /* Menggunakan Flexbox untuk menyusun kolom */
+    justify-content: center; /* Menempatkan semua konten di tengah */
+    align-items: center; /* Menyelaraskan konten secara vertikal */
 }
 
 .btn-container {
-    display: flex;
-    /* Menggunakan Flexbox untuk container tombol */
-    margin-top: 20px;
-    /* Menambahkan margin atas untuk spasi */
+    display: flex; /* Menggunakan Flexbox untuk container tombol */
+    margin-top: 20px; /* Menambahkan margin atas untuk spasi */
 }
 
 /* Kustomisasi tombol */
 .btn-black {
     padding: 15px 30px;
     font-size: 14px;
-    font-weight: 600;
-    /* Bold text */
-    color: white;
-    /* Teks berwarna putih */
-    background-color: black;
-    /* Warna latar belakang tombol hitam */
-    border: none;
-    /* Menghapus border default */
+    font-weight: 600; /* Bold text */
+    color: white; /* Teks berwarna putih */
+    background-color: black; /* Warna latar belakang tombol hitam */
+    border: none; /* Menghapus border default */
     text-align: center;
-    text-decoration: none;
-    /* Menghapus garis bawah */
-    cursor: pointer;
-    /* Menampilkan pointer saat hover */
-    transition: background-color 0.3s ease;
-    /* Efek transisi saat hover */
-    width: 300px;
-    /* Lebar tombol */
-    display: flex;
-    /* Menggunakan Flexbox untuk teks di dalam tombol */
-    justify-content: center;
-    /* Tengah secara horizontal dalam tombol */
-    align-items: center;
-    /* Tengah secara vertikal dalam tombol */
+    text-decoration: none; /* Menghapus garis bawah */
+    cursor: pointer; /* Menampilkan pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    width: 300px; /* Lebar tombol */
+    display: flex; /* Menggunakan Flexbox untuk teks di dalam tombol */
+    justify-content: center; /* Tengah secara horizontal dalam tombol */
+    align-items: center; /* Tengah secara vertikal dalam tombol */
 }
 
 .btn-black:hover {
-    background-color: #333;
-    /* Warna latar belakang saat hover */
-    color: white;
-    /* Pastikan teks tetap putih saat hover */
+    background-color: #333; /* Warna latar belakang saat hover */
+    color: white; /* Pastikan teks tetap putih saat hover */
 }
 
 /* Responsivitas */
+/* Responsivitas */
 @media (max-width: 768px) {
     .row-news {
-        flex-direction: column;
-        /* Mengatur kolom menjadi satu kolom pada perangkat kecil */
-        align-items: center;
-        /* Menyelaraskan konten di tengah */
+        flex-direction: column; /* Mengatur kolom menjadi satu kolom pada perangkat kecil */
+        align-items: center; /* Menyelaraskan konten di tengah */
     }
 
     .text-content-news {
-        text-align: justify;
-        /* Menyelaraskan teks di tengah */
+        text-align: justify; /* Menyelaraskan teks di tengah */
         padding: 0 35px;
-        /* Memberikan jarak kanan-kiri */
     }
 
     .text-content-news h3 {
-        text-align: left;
+        text-align: left; /* Menyelaraskan teks di tengah */
     }
 
     .rounded-image-news {
         display: flex;
-        width: 300px;
-        /* Lebar kotak */
-        height: 300px;
-        /* Tinggi kotak */
-        object-fit: cover;
-        /* Menjaga proporsi gambar */
-        border-radius: 15px;
-        /* Tetap memberi sudut melengkung */
-        margin: 80px auto;
-        /* Menempatkan gambar di tengah */
+        width: 230px; /* Lebar kotak */
+        height: 345px; /* Tinggi kotak */
+        object-fit: cover; /* Menjaga proporsi gambar */
+        border-radius: 15px; /* Tetap memberi sudut melengkung */
+        margin: 25px auto; /* Menempatkan gambar di tengah */
     }
 
     .btn-black {
-            width: 80%;
-            /* Membuat tombol melebar 80% dari kontainer */
-            margin: 0 auto;
-            /* Menempatkan tombol di tengah */
+        width: 100%; /* Membuat tombol melebar 80% dari kontainer */
+        margin: 0 auto; /* Menempatkan tombol di tengah */
     }
 }
 
@@ -491,7 +443,7 @@ html {
 }
 
 .news-other-title {
-    margin: 70px -15px;
+    margin: 95px -15px;
 }
 
 .berita-card {
@@ -500,33 +452,25 @@ html {
     justify-content: space-between;
     border: 1px solid #ddd;
     border-radius: 18px;
-    overflow: hidden;
-    /* Agar elemen anak tidak keluar dari card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sedikit bayangan untuk tampilan 3D */
+    overflow: hidden; /* Agar elemen anak tidak keluar dari card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan untuk tampilan 3D */
     max-height: 380px;
     min-width: 280px;
     margin: -18px -15px;
 }
 
 .berita-card img {
-    width: 100%;
-    /* Lebar gambar akan otomatis menyesuaikan ukuran card */
-    height: 175px;
-    /* Tentukan tinggi yang diinginkan */
-    object-fit: cover;
-    /* Gambar akan menutupi area yang ada tanpa terpotong */
-    border-top-left-radius: 18px;
-    /* Menyelaraskan radius sudut gambar dengan card */
+    width: 100%; /* Lebar gambar akan otomatis menyesuaikan ukuran card */
+    height: 175px; /* Tentukan tinggi yang diinginkan */
+    object-fit: cover; /* Gambar akan menutupi area yang ada tanpa terpotong */
+    border-top-left-radius: 18px; /* Menyelaraskan radius sudut gambar dengan card */
     border-top-right-radius: 18px;
 }
 
 .card-body {
     flex-grow: 1;
-    flex-direction: column;
-    /* Mengatur agar konten diatur secara vertikal */
-    justify-content: space-between;
-    /* Memisahkan title dan text dari read more */
+    flex-direction: column; /* Mengatur agar konten diatur secara vertikal */
+    justify-content: space-between; /* Memisahkan title dan text dari read more */
     padding: 15px;
 }
 
@@ -540,26 +484,22 @@ html {
     font-size: 0.85rem;
     font-weight: 600;
     line-height: 1.5;
-    color: #000000;
-    /* Warna teks yang lebih lembut */
+    color: #000000; /* Warna teks yang lebih lembut */
     margin-bottom: 15px;
     margin-right: 30px;
     margin-top: auto;
 }
 
 .read-more {
-    max-width: max-content;
-    /* Lebar elemen sesuai dengan panjang teks */
+    max-width: max-content; /* Lebar elemen sesuai dengan panjang teks */
     font-size: 0.85rem;
     text-decoration: none;
     color: #ff9d00;
     position: relative;
-    display: inline-block;
-    /* Pastikan hanya sepanjang teks */
+    display: inline-block; /* Pastikan hanya sepanjang teks */
     transition: color 0.3s;
     margin-top: auto;
-    padding-bottom: 2px;
-    /* Sedikit jarak di bawah teks */
+    padding-bottom: 2px; /* Sedikit jarak di bawah teks */
     width: auto;
     white-space: nowrap;
 }
@@ -569,25 +509,20 @@ html {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
-    /* Garis di bawah teks */
-    width: 0;
-    /* Lebar garis dimulai dari 0 */
+    bottom: 0; /* Garis di bawah teks */
+    width: 0; /* Lebar garis dimulai dari 0 */
     height: 2px;
-    background-color: #ff9d00;
-    /* Warna garis */
+    background-color: #ff9d00; /* Warna garis */
     transition: width 0.3s ease;
 }
 
 /* Hover effect to animate the underline */
 .read-more:hover::after {
-    width: 100%;
-    /* Garis hanya akan selebar teks */
+    width: 100%; /* Garis hanya akan selebar teks */
 }
 
 .read-more:hover {
-    color: #ff9d00;
-    /* Warna teks tetap */
+    color: #ff9d00; /* Warna teks tetap */
 }
 
 
@@ -602,7 +537,99 @@ html {
     }
 }
 
+/* news detail */
+
+.news-detail {
+    margin-top: 150px; /* Jarak atas */
+    max-width: 900px; /* Maksimal lebar untuk layar besar */
+    width: 100%; /* Sesuaikan lebar dengan layar */
+    padding: 20px 40px; /* Tambahkan padding untuk layar kecil */
+    margin-left: auto;
+    margin-right: auto; /* Pusatkan kontainer */
+}
+
+.news-content-detail {
+    display: flex;
+    flex-wrap: wrap; /* Biarkan elemen membungkus untuk layar kecil */
+    border: 1px solid #e0e0e0; /* Garis batas */
+    border-radius: 18px; /* Sudut melengkung */
+    padding: 20px; /* Jarak dalam kontainer */
+    background-color: #fff; /* Latar belakang putih */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+.news-image {
+    flex: 0 0 400px; /* Ukuran tetap untuk layar besar */
+    max-width: 100%; /* Pastikan gambar responsif */
+    margin-right: 20px; /* Jarak kanan untuk teks */
+    margin-bottom: 20px; /* Tambahkan jarak bawah untuk layar kecil */
+}
+
+.news-image img {
+    width: 100%; /* Gambar responsif */
+    height: auto; /* Mempertahankan aspek rasio */
+    border-radius: 18px; /* Sudut melengkung untuk gambar */
+}
+
+.news-text {
+    flex: 1; /* Teks mengambil sisa ruang */
+}
+
+.news-title {
+    font-size: 28px; /* Ukuran font untuk layar besar */
+    font-weight: 700; /* Tebal */
+    margin-bottom: 10px; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
+}
+
+.news-description {
+    margin-bottom: 10px; /* Jarak antar paragraf */
+    line-height: 1.6; /* Tinggi baris untuk keterbacaan */
+    color: #555; /* Warna teks */
+}
+
+.news-date {
+    margin-bottom: 15px; /* Jarak bawah tanggal */
+    font-size: 14px; /* Ukuran font untuk tanggal */
+    color: #777; /* Warna teks tanggal */
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 768px) {
+    .news-content-detail {
+        flex-direction: column; /* Susun vertikal */
+        padding: 15px; /* Kurangi padding */
+    }
+
+    .news-image {
+        flex: 0 0 100%; /* Gambar mengambil lebar penuh */
+        margin-right: 0; /* Hilangkan jarak kanan */
+    }
+
+    .news-title {
+        font-size: 22px; /* Ukuran font lebih kecil untuk layar kecil */
+    }
+
+    .news-description,
+    .news-date {
+        font-size: 16px; /* Sesuaikan ukuran teks */
+    }
+}
+
+
+
 /* contact */
+
+.rating i {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.rating i.active {
+    color: gold;
+}
 
 /* KONTAK */
 .contact-container {

@@ -4,9 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
-use App\Http\Controllers\SliderController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\FrontController;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('tentang', App\Http\Controllers\TentangController::class);
     Route::resource('menu', App\Http\Controllers\MenuController::class);
-    Route::resource('message', App\Http\Controllers\MessagesController::class);
+    Route::resource('pesan', App\Http\Controllers\PesanController::class);
 });
 Route::get('/', [FrontController::class, 'home']);
 
@@ -54,6 +53,8 @@ Route::get('gallery', [FrontController::class, 'gallery'])->name('gallery');
 Route::get('news', [FrontController::class, 'news'])->name('news');
 Route::get('news/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('contact', [FrontController::class, 'contact'])->name('contact');
+Route::get('menu', [FrontController::class, 'menu'])->name('menu');
+Route::get('news/{slug}', [App\Http\Controllers\FrontController::class, 'postNews'])->name('berita.show');
 
 
 Route::get('news/show/{id}', [FrontController::class, 'show'])->name('news.show');

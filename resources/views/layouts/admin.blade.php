@@ -278,6 +278,14 @@
     </script> <!--end::Script-->
 
     @stack('scripts')
+    <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
+    <script>
+        document.querySelectorAll("textarea").forEach((el) => {
+            ClassicEditor.create(el)
+                .catch(error => console.error(error));
+        });
+    </script>
+
     @include('sweetalert::alert')
 
 </body><!--end::Body-->

@@ -13,6 +13,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">TENTANG</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('news') }}">BERITA</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('gallery') }}">GALERI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('menu') }}">MENU</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">KONTAK</a></li>
                 </ul>
             </div>
@@ -29,6 +30,7 @@
                     <li><a href="{{ route('about') }}"><i class="fas fa-info-circle"></i> Tentang</a></li>
                     <li><a href="{{ route('news') }}"><i class="fas fa-newspaper"></i> Berita</a></li>
                     <li><a href="{{ route('gallery') }}"><i class="fas fa-image"></i> Galeri</a></li>
+                    <li><a href="{{ route('menu') }}"><i class="fas fa-image"></i> Menu</a></li>
                     <li><a href="{{ route('contact') }}"><i class="fas fa-envelope"></i> Kontak</a></li>
                 </ul>
                 <div class="sidebar-footer">

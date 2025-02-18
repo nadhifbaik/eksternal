@@ -2,45 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use Validator;
 use Alert;
 use Storage;
-use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $berita = Berita::latest()->paginate(5);
-        confirmDelete("Delete", "Apa Kamu Yakin?");
-        return view('admin.berita.index', compact('berita'));
+        $beritas = Berita::latest()->paginate();
+
+        confirmDelete("Delete", "Are You Sure?");
+        return view('admin.berita.index', compact('beritas'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('admin.berita.create');
+        $beritas = Berita::all();
+        return view('admin.berita.create', compact('beritas'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        // membuat validasi data
         $this->validate($request, [
-            'image' => 'image|mimes:png,jpg,jpeg',
             'judul' => 'required',
             'deskripsi' => 'required',
+            'image' => 'image|mimes:jpeg,jpg,png',
         ]);
 
-        $berita = new Berita($request->all());
-        $berita->judul = $request->judul;
-        $berita->deskripsi = $request->deskripsi;
-
-        //upload image
-        $images = $request->file('image');
-        $images->storeAs('public/berita/', $images->hashName());
-        $berita->image = $images->hashName();
-        $berita->save();
-        Alert::success('Success', 'Data Berhasil di Simpan')->autoClose(2000);
+        $beritas = new Berita($request->all());
+        $beritas->judul = $request->judul;
+        $beritas->deskripsi = $request->deskripsi;
+        $image = $request->file('image');
+        $image->storeAs('public/beritas', $image->hashName());
+        $beritas->image = $image->hashName();
+        $beritas->save();
+        Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('berita.index');
     }
 
@@ -49,8 +57,8 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        $berita = Berita::findOrFail($id);
-        return view('admin.berita.show', compact('berita'));
+        $beritas = Berita::findOrFail($id);
+        return view('admin.berita.show', compact('beritas'));
     }
 
     /**
@@ -58,8 +66,8 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        $berita = Berita::findOrFail($id);
-        return view('admin.berita.edit', compact('berita'));
+        $beritas = Berita::findOrFail($id);
+        return view('admin.berita.edit', compact('beritas'));
     }
 
     /**
@@ -67,28 +75,28 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // vallidate form
+        // vallidate form
         $this->validate($request, [
-            'image' => 'image|nullable|mimes:jpeg,jpg,png',
             'judul' => 'required',
             'deskripsi' => 'required',
+            'image' => 'image|nullable|mimes:jpeg,jpg,png',
         ]);
 
-        $berita = Berita::findOrFail($id);
-        $berita->judul = $request->judul;
-        $berita->deskripsi = $request->deskripsi;
+        $beritas = Berita::findOrFail($id);
+        $beritas->judul = $request->judul;
+        $beritas->deskripsi = $request->deskripsi;
 
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
-            Storage::delete('public/berita/' . $berita->image);
+            Storage::delete('public/beritas/' . $beritas->image);
 
             // Simpan gambar baru
             $image = $request->file('image');
-            $image->storeAs('public/berita', $image->hashName());
-            $berita->image = $image->hashName();
+            $image->storeAs('public/beritas', $image->hashName());
+            $beritas->image = $image->hashName();
         }
 
-        $berita->save();
+        $beritas->save();
 
         Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('berita.index');
@@ -99,11 +107,10 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        //Delete Contact
-        $berita = Berita::findOrFail($id);
-        $berita->delete();
-        toast('Data Berhasil di Hapus', 'Success')->autoClose(2000);
+        $beritas = Berita::findOrFail($id);
+        $beritas->delete();
+        toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
+        Storage::delete('public/beritas/' . $beritas->image);
         return redirect()->route('berita.index');
-
     }
 }

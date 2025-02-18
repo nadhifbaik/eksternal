@@ -14,7 +14,9 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        //
+        $testimony = Testimony::all();
+        confirmDelete("Delete", "Apa Kamu Yakin?");
+        return view('admin.testimony.index', compact('kontak'));
     }
 
     /**

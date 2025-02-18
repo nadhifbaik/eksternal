@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('testimonies', function (Blueprint $table) {
             $table->id();
             $table->string('messages');
-            $table->boolean('rating')->default(0);
+            $table->string('rating');
             $table->timestamps();
         });
     }

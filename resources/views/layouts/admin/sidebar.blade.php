@@ -47,7 +47,7 @@
               </li>
               <li><a href="{{ route('menu.index') }}"><i class="material-icons-outlined">arrow_right</i>Menu</a>
               </li>
-              <li><a href="{{ route('message.index') }}"><i class="material-icons-outlined">arrow_right</i>Message</a>
+              <li><a href="{{ route('pesan.index') }}"><i class="material-icons-outlined">arrow_right</i>Pesan</a>
               </li>
             </ul>
           </li>

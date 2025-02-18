@@ -19,6 +19,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('front/assets/stylee.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
+
 </head>
 
 <body>

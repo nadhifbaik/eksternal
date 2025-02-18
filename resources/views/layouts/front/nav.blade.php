@@ -23,6 +23,9 @@
                             <a class="nav-link" href="{{ route('gallery') }}">GALERI</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link">MENU</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">KONTAK</a>
                         </li>
                     </ul>
@@ -51,10 +54,7 @@
             <h1 class="mb-3"><strong><b><b>TASTY FOOD</b></b></strong></h1>
             <p>
                 <span class="konten" style="line-height: 2;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum
-                    commodo, dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim
-                    neque,
-                    vel luctus ex. Fusce sit amet viverra ante.
+                   {{ $judul->deskripsi }}
                 </span>
             </p>
             <a href="{{ route('about') }}" class="btn-black"><b>TENTANG KAMI</b></a>

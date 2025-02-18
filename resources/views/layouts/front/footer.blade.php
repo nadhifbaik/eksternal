@@ -14,7 +14,7 @@
                 <div class="col-md-2">
                     <h5>Useful links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#"></a></li>
                         <li><a href="#">Hewan</a></li>
                         <li><a href="#">Galeri</a></li>
                         <li><a href="#">Testimonial</a></li>
